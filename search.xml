@@ -5,11 +5,7 @@
     <url>/2018/09/04/test/</url>
     <content><![CDATA[<h2 id="HTML是什么"><a href="#HTML是什么" class="headerlink" title="HTML是什么"></a>HTML是什么</h2><p>HTML指的是超文本标记语言 是制作超级文本文档的简单标记语言 可以从一个平台移    植到另一个平台 通常用于制作网页 html文件时asci文本 包括格式标记和超级文本链    的嵌入代码</p>
 <p>HTMLtext是由HTML命令组成的描述性文本 他能够描述文字 图形 动画 声音 表格     连接等 网页结构由标题和正文两部分组成 Header描述浏览器需要的信息 并且主体    包含要描述的具体内容</p>
-<p>Html是网页设计的基础 在网站结构中 静态网页被称为基于HTML的网页</p>
-<p><a href="https://github.com/tangyuxian/hexo-theme-tangyuxian.git">https://github.com/tangyuxian/hexo-theme-tangyuxian.git</a></p>
-<p><a href="https://github.com/Longlongyu/hexo-theme-Cxo.git">https://github.com/Longlongyu/hexo-theme-Cxo.git</a></p>
-<p>git clone -b master <a href="https://github.com/Longlongyu/hexo-theme-Cxo">https://github.com/Longlongyu/hexo-theme-Cxo</a> themes/Cxo</p>
-<p>git clone -b master <a href="https://github.com/tangyuxian/hexo-theme-tangyuxian.git">https://github.com/tangyuxian/hexo-theme-tangyuxian.git</a> themes/Ttangyuxian</p>
+<p>Html是网页设计的基础。在网站结构中，静态网页被称为基于 HTML的网页。过去的网页都是直接用 HTML代码编写的，但现在有许多智能网页制作软件(经常使用的 frontpage、 dream weaver等)通常都是通过这些软件自动生成的，而不是手工编写。虽然不一定要自己写，但是理解 HTML代码还是很重要的。了解 HTML是什么？了解网站建设的重要技术基础知识。</p>
 <h2 id="浏览器内核-常见的浏览器内核"><a href="#浏览器内核-常见的浏览器内核" class="headerlink" title="浏览器内核 常见的浏览器内核"></a>浏览器内核 常见的浏览器内核</h2><p>浏览器内核主要分为两部分：渲染引擎和JS引擎</p>
 <p>渲染引擎：负责去的网页的内容(HTML、XML、图像等等) 整理讯息(例如加入css等) 以              及计算网页的思显示方式 然后会输出至服务器或打印机 浏览器的内核的              不同对于网页的语法解释会有不同 所以渲染的结果也不相同 所有网页浏              览器 电子邮件客户端以及其他需要编辑 显示网络内容的应用程序都需要              内核</p>
 <p>JS引擎：解析和执行js来实现网页的动态效果</p>
@@ -54,7 +50,7 @@
   </entry>
   <entry>
     <title>常见的浏览器内核</title>
-    <url>/2022/09/05/%E5%B8%B8%E8%A7%81%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8/</url>
+    <url>/2018/09/05/%E5%B8%B8%E8%A7%81%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8/</url>
     <content><![CDATA[<h2 id="浏览器内核-常见的浏览器内核"><a href="#浏览器内核-常见的浏览器内核" class="headerlink" title="浏览器内核 常见的浏览器内核"></a>浏览器内核 常见的浏览器内核</h2><p>浏览器内核主要分为两部分：渲染引擎和JS引擎</p>
 <p>渲染引擎：负责去的网页的内容(HTML、XML、图像等等) 整理讯息(例如加入css等) 以              及计算网页的思显示方式 然后会输出至服务器或打印机 浏览器的内核的              不同对于网页的语法解释会有不同 所以渲染的结果也不相同 所有网页浏              览器 电子邮件客户端以及其他需要编辑 显示网络内容的应用程序都需要              内核</p>
 <p>JS引擎：解析和执行js来实现网页的动态效果</p>
@@ -79,7 +75,7 @@
   </entry>
   <entry>
     <title>HTML5有哪些新特性 移除了哪些元素？</title>
-    <url>/2022/09/05/%E7%A7%BB%E9%99%A4%E4%BA%86%E5%93%AA%E4%BA%9B%E5%85%83%E7%B4%A0%EF%BC%9F/</url>
+    <url>/2018/09/05/%E7%A7%BB%E9%99%A4%E4%BA%86%E5%93%AA%E4%BA%9B%E5%85%83%E7%B4%A0%EF%BC%9F/</url>
     <content><![CDATA[<p>HTML现在已经不是SGML的子集 主要是关于图像 位置 存储 多任务等功能的增加</p>
 <p>新增选择器document.querySelector document.querySelectorAll</p>
 <p>拖拽播放(Drag and drop) API</p>
@@ -111,6 +107,218 @@
       </categories>
       <tags>
         <tag>HTML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git常用的命令有哪些</title>
+    <url>/2018/10/13/Git%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4%E6%9C%89%E5%93%AA%E4%BA%9B/</url>
+    <content><![CDATA[<h2 id="Git常用的命令有哪些？"><a href="#Git常用的命令有哪些？" class="headerlink" title="Git常用的命令有哪些？"></a>Git常用的命令有哪些？</h2><p>git config –global user.name “用户名” </p>
+<p>git config –global user.email “登录邮箱”</p>
+<p>git clone url 下载一个项目和整个代码历史</p>
+<p>git init 初始化仓库 默认master分支</p>
+<p>git add . 提交全部文件修改到暂存区</p>
+<p>git diff 查看当前代码add后 会add哪些内容</p>
+<p>git status 查看当前分支状态</p>
+<p>git pull &lt;远程仓库名&gt; &lt;远程分支名&gt; 拉取远程仓库的分支与本地当前分支合并</p>
+<p>git pull &lt;远程仓库名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt; 拉取远程仓库的分支与本地某                                                 个分支和合并</p>
+<p>git commit -m “&lt;注释&gt;” 提交代码到本地仓库 并写提交注释</p>
+<p>git commit -v 提交时显示所有diff信息</p>
+<p>git checkout &lt;分支名&gt; 切换到本地某个分支</p>
+<p>git branch -D &lt;分支名&gt; 删除本地某个分支</p>
+<p>git branch 查看本地所有分支</p>
+<p>git branch -r 查看远程所有分支</p>
+<p>git branch -a 查看本地和远程所有分支</p>
+<p>git merge &lt;分支名&gt; 合并分支</p>
+<p>git push [remote] [branch] 上传本地指定分支到远程仓库</p>
+<p>git push [remote] –force 强行推送当前分支到远程仓库 即使有冲突</p>
+<p>git checkout [file] 恢复暂存区的指定文件到工作区</p>
+<p>git checkout . 恢复暂存区的所有文件到工作区</p>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>对git的理解</title>
+    <url>/2018/10/13/%E5%AF%B9git%E7%9A%84%E7%90%86%E8%A7%A3/</url>
+    <content><![CDATA[<h2 id="对git的理解"><a href="#对git的理解" class="headerlink" title="对git的理解"></a>对git的理解</h2><p>git是一个分布式版本控制软件 最初目的是为更好的管理Linuv内核开发而设计</p>
+<p>分布式版本控制系统的客户端并不止提取最新版本的文件快照 而是把代码仓库完整的    镜像下来</p>
+<p>GitHub或者gitee实际就可以充当服务器角色 其是一个开源协作社区</p>
+<p>当我们通过git init 创建或者git clone一个项目时 项目目录会隐藏一个.git子目录 其作    用是用来跟踪管理版本库的</p>
+<p>工作状态对应 不用状态文件在git中处于不同的工作区域 主要分成四部分:</p>
+<p>工作区:相当于本地写代码的区域</p>
+<p>暂存区:暂存区是一个文件 保存了下次将提交的文件列表信息 一般在git仓库目           录中</p>
+<p>本地仓库:提交更新 找到暂存区域的文件 将快照永久性存储到Git本地仓库</p>
+<p>远程仓库:远程的仓库 如GitHub gitee</p>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>浅拷贝和深拷贝的区别</title>
+    <url>/2018/09/13/%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<h2 id="浅拷贝和深拷贝的区别"><a href="#浅拷贝和深拷贝的区别" class="headerlink" title="浅拷贝和深拷贝的区别"></a>浅拷贝和深拷贝的区别</h2><p>浅拷贝：主要是对指针的拷贝 拷贝后两个指针指向同一个内存空间 拷贝之后的数据修改之后 也会影响到原数据中的对象数据</p>
+<p>深拷贝：将数据中所有的数据拷贝下来 对拷贝之后的数据进行修改不会影响到原数据</p>
+<p>实现方式：</p>
+<p>深拷贝：</p>
+<p>1.使用递归实现</p>
+<p>2.Json.stringify和Json.parse</p>
+<p>用json.stringify把对象转换成字符串 再用Json.parse把字符串转换成新    的对象 可以转成Json格式的对象才能使用这种方法 如果对象中包含    function或RegExp就不能使用这种方法</p>
+<ol>
+<li>函数库lodash的_.cloneDeep方法</li>
+</ol>
+<p>var _ = require(‘loadsh’)</p>
+<p>var obj = {</p>
+<p>a:{</p>
+<p>c:2,</p>
+<p>d:[9,8,7]</p>
+<p>},</p>
+<p>b:4</p>
+<p>}</p>
+<p>var obj1 = _.cloneDeep(obj)</p>
+<ol start="2">
+<li>通过JQuery的extend方法实现深拷贝：</li>
+</ol>
+<p>var _ = require(‘jquery’)</p>
+<p>var obj = {</p>
+<p>a:{</p>
+<p>c:2,</p>
+<p>d:[9,8,7]</p>
+<p>},</p>
+<p>b:4</p>
+<p>}</p>
+<p>var obj1 = _.extend(true,{},obj)</p>
+<p>浅拷贝：</p>
+<ol>
+<li>通过拷贝构造方法实现浅拷贝：</li>
+</ol>
+<p>拷贝构造方法指的是该类的构造方法参数为该类的对象 使用拷贝构造方    法可以很好地完成浅拷贝 直接通过一个现有的对象创建出与该对象属性    相同的新对象</p>
+<ol start="2">
+<li>通过重写clone()方法进行浅拷贝</li>
+</ol>
+<p>object类有一个方法为protected Object clone() throws     CloneNotSupportedException 这个方法就是进行的浅拷贝 有了这个浅拷    贝模板 可以通过调用clone()方法来实现对象的浅拷贝</p>
+<p>​    注意：</p>
+<p>​    object类虽然有这个方法 但是这个方法是受保护的 所以无法直接使用</p>
+<p>​    使用clone方法的类必须实现Cloneable接口 否则会抛出异常    CloneNotSupportedException 解决方法是 在使    用clone方法的类中重写clone方法 通过super.clone()调用object类中的原clone方法</p>
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>说说git发生冲突的场景</title>
+    <url>/2018/10/14/%E8%AF%B4%E8%AF%B4git%E5%8F%91%E7%94%9F%E5%86%B2%E7%AA%81%E7%9A%84%E5%9C%BA%E6%99%AF/</url>
+    <content><![CDATA[<h2 id="说说git发生冲突的场景"><a href="#说说git发生冲突的场景" class="headerlink" title="说说git发生冲突的场景"></a>说说git发生冲突的场景</h2><p>情景一：多个分支代码合并到一个分支</p>
+<p>情景二：多个分支向同一个远端分支推送代码时</p>
+<p>push和pull其实就是分别用本地分支合并到远程分支和将远程分支合并到本地分支</p>
+<p>所以这两个过程中也可能存在冲突</p>
+<p>git的合并产生冲突的具体情况：</p>
+<p>1 两个分支中修改了同一个文件</p>
+<p>2 两个分支中修改了同一个文件的名称</p>
+<p>两个分支中分别修改了不同文件中的部分 不会产生冲突 可以直接将两部分合并</p>
+<p>解决方法：</p>
+<p>情景一：在当前分支 直接修改冲突代码</p>
+<p>情景二：在本地当前分支 修改冲突代码</p>
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>14.typeof与instanceof区别</title>
+    <url>/2022/10/04/14-typeof%E4%B8%8Einstanceof%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<h2 id="typeof和instanceof的区别"><a href="#typeof和instanceof的区别" class="headerlink" title="typeof和instanceof的区别"></a>typeof和instanceof的区别</h2><p>typeof操作符返回一个字符串 表示未经计算的操作数的类型</p>
+<p>null在typeof之后返回的是有问题的结果 不能作为判断null的方法 判断null array object和函数实例 都是返回object 引用数据类型    使用typeof判断 除了function可以被识别 其余都输出object</p>
+<p>instanceof运算符用于检测构造函数的prototype属性是否出现在某个实例对象的原型    链上 </p>
+<p>区别：</p>
+<p>typeof返回一个变量基本类型 instanceof返回一个布尔值</p>
+<p>instanceof可以准确判断复杂引用数据类型  但不能正确判断基础数据类型</p>
+<p>typeof虽然可以判断基础数据类型 但是引用数据类型中 除了function类型 其他    的也无法判断    </p>
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript中的数据类型 存储上的区别</title>
+    <url>/2018/10/23/JavaScript%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<h2 id="JavaScript中的数据类型-存储上的区别"><a href="#JavaScript中的数据类型-存储上的区别" class="headerlink" title="JavaScript中的数据类型 存储上的区别"></a>JavaScript中的数据类型 存储上的区别</h2><p>基本数据类型：</p>
+<p>Number</p>
+<p>String</p>
+<p>Boolean</p>
+<p>Undefined</p>
+<p>Null</p>
+<p>Symbol</p>
+<p>引用数据类型：</p>
+<p>Object</p>
+<p>Array</p>
+<p>Function</p>
+<p>区别：</p>
+<p>基本数据类型指的就是简单的数据段 引用数据类型指的是多个值构成的对象 当    我们把变量赋值给一个变量时 解析器首先要确认的就是这个值是基本数据类型还    是引用类型值</p>
+<p>存储区别：</p>
+<p>Js中的变量都是保存在栈内存中的 基本数据类型的值都是直接保存在栈内存中     值与值之间是独立的存在 因此当修改一个变量的值不会影响其他变量的值</p>
+<p>对象是保存在堆内存中的 每创建一个对象 就会在堆内存中开辟出一个新的空间     变量保存的是对象的内存地址（对象的应用） 保存的并不是值 如果两个变量保存    的是同一个地址 当通过一个变量修改属性时 另一个也会受影响</p>
+<p>比较两个基本数据类型的值时 比较的就是值 比较两个引用数据类型时 比较的是内存地址 如果两个对象一模一样但是内存地址不同 也会返回false</p>
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>对闭包的理解</title>
+    <url>/2018/11/01/%E5%AF%B9%E9%97%AD%E5%8C%85%E7%9A%84%E7%90%86%E8%A7%A3/</url>
+    <content><![CDATA[<h2 id="对闭包的理解"><a href="#对闭包的理解" class="headerlink" title="对闭包的理解"></a>对闭包的理解</h2><p>闭包就是能够读取其他函数内部变量的函数</p>
+<p>闭包指有权访问另一个函数作用域中变量的函数 创建闭包最常见的方式就是在一个函    数内创建另一个函数 通过另一个函数访问这个函数的局部变量</p>
+<p>闭包特性：</p>
+<p>函数套函数</p>
+<p>内部函数可以引用外部函数的参数和变量</p>
+<p>不会被垃圾回收机制回收    </p>
+<p>使用闭包主要是为了设计私有方法和变量 闭包的优点是可以避免全局变量污染 缺点    是闭包会常驻内存 增大内存使用量 使用不当容易造成内存泄漏 在js中 函数即闭包</p>
+<p>闭包最大的用处 一是可以读取函数内部变量 二是让这些变量始终保持在内存中 延长    变量生命周期</p>
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>什么是模块化</title>
+    <url>/2018/10/21/%E4%BB%80%E4%B9%88%E6%98%AF%E6%A8%A1%E5%9D%97%E5%8C%96/</url>
+    <content><![CDATA[<h2 id="什么是模块化"><a href="#什么是模块化" class="headerlink" title="什么是模块化"></a>什么是模块化</h2><p>模块化指解决一个复杂问题时 自顶向下逐层把系统划分成若干模块的过程 对于整体    系统来说 模块是可组合 分解和更换的单元</p>
+<p>一个js文件中可以引入另一个js文件的数据</p>
+<p>模块化的好处：</p>
+<p>提高了代码的复用性</p>
+<p>提高了代码的可维护性</p>
+<p>可以实现按需加载</p>
+<p>模块化的规范：</p>
+<p>每个模块内部 module变量代表当前模块</p>
+<p>module变量是一个对象 他的exports是对外的接口</p>
+<p>加载某个模块 其实是加载该模块的module.exports属性 .require()方法常用于加载    模块</p>
+<p>在自定义模块中定义的变量和方法 只能在当前模块被访问 外部文件不可访问 这种模    块级别的访问限制 叫做模块作用域 他防止了全局变量污染 文件依赖等问题</p>
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
       </tags>
   </entry>
 </search>
