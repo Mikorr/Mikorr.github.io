@@ -5,22 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>JavaScript中的数据类型 存储上的区别 - null</title>
+    <title>对盒子模型的理解 - null</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="JavaScript中的数据类型 存储上的区别基本数据类型：
-Number
-String
-Boolean
-Undefined
-Null
-Symbol
-引用数据类型：
-Object
-Array
-Fun,"> 
+    <meta name="description" content="对盒子模型的理解在浏览网站时 我们会发现页面内容都是按照区域划分的 在页面中每一块区域分别承    载不同的内容 使网页内容虽然零散 但是在版式排列上依然清晰有条理 承载内容的区    域被称为盒子,"> 
     <meta name="author" content="Mikor"> 
     <link rel="alternative" href="atom.xml" title="" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -28,36 +18,16 @@ Fun,">
     
     
     <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content="JavaScript中的数据类型 存储上的区别 - null"/>
-    <meta name="twitter:description" content="JavaScript中的数据类型 存储上的区别基本数据类型：
-Number
-String
-Boolean
-Undefined
-Null
-Symbol
-引用数据类型：
-Object
-Array
-Fun,"/>
+    <meta name="twitter:title" content="对盒子模型的理解 - null"/>
+    <meta name="twitter:description" content="对盒子模型的理解在浏览网站时 我们会发现页面内容都是按照区域划分的 在页面中每一块区域分别承    载不同的内容 使网页内容虽然零散 但是在版式排列上依然清晰有条理 承载内容的区    域被称为盒子,"/>
     
     
     
     
     <meta property="og:site_name" content=""/>
     <meta property="og:type" content="object"/>
-    <meta property="og:title" content="JavaScript中的数据类型 存储上的区别 - null"/>
-    <meta property="og:description" content="JavaScript中的数据类型 存储上的区别基本数据类型：
-Number
-String
-Boolean
-Undefined
-Null
-Symbol
-引用数据类型：
-Object
-Array
-Fun,"/>
+    <meta property="og:title" content="对盒子模型的理解 - null"/>
+    <meta property="og:description" content="对盒子模型的理解在浏览网站时 我们会发现页面内容都是按照区域划分的 在页面中每一块区域分别承    载不同的内容 使网页内容虽然零散 但是在版式排列上依然清晰有条理 承载内容的区    域被称为盒子,"/>
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
@@ -75,7 +45,7 @@ Fun,"/>
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">JavaScript中的数据类型 存储上的区别</h3>
+    <h3 class="subtitle">对盒子模型的理解</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -90,32 +60,22 @@ Fun,"/>
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">JavaScript中的数据类型 存储上的区别</h1>
+        <h1 class="title">对盒子模型的理解</h1>
         <div class="stuff">
-            <span>十月 23, 2018</span>
+            <span>十月 02, 2018</span>
             
-  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/JS/" rel="tag">JS</a></li></ul>
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
 
 
         </div>
         <div class="content markdown">
-            <h2 id="JavaScript中的数据类型-存储上的区别"><a href="#JavaScript中的数据类型-存储上的区别" class="headerlink" title="JavaScript中的数据类型 存储上的区别"></a>JavaScript中的数据类型 存储上的区别</h2><p>基本数据类型：</p>
-<p>Number</p>
-<p>String</p>
-<p>Boolean</p>
-<p>Undefined</p>
-<p>Null</p>
-<p>Symbol</p>
-<p>引用数据类型：</p>
-<p>Object</p>
-<p>Array</p>
-<p>Function</p>
-<p>区别：</p>
-<p>基本数据类型指的就是简单的数据段 引用数据类型指的是多个值构成的对象 当    我们把变量赋值给一个变量时 解析器首先要确认的就是这个值是基本数据类型还    是引用类型值</p>
-<p>存储区别：</p>
-<p>Js中的变量都是保存在栈内存中的 基本数据类型的值都是直接保存在栈内存中     值与值之间是独立的存在 因此当修改一个变量的值不会影响其他变量的值</p>
-<p>对象是保存在堆内存中的 每创建一个对象 就会在堆内存中开辟出一个新的空间     变量保存的是对象的内存地址（对象的应用） 保存的并不是值 如果两个变量保存    的是同一个地址 当通过一个变量修改属性时 另一个也会受影响</p>
-<p>比较两个基本数据类型的值时 比较的就是值 比较两个引用数据类型时 比较的是内存地址 如果两个对象一模一样但是内存地址不同 也会返回false</p>
+            <h2 id="对盒子模型的理解"><a href="#对盒子模型的理解" class="headerlink" title="对盒子模型的理解"></a>对盒子模型的理解</h2><p>在浏览网站时 我们会发现页面内容都是按照区域划分的 在页面中每一块区域分别承    载不同的内容 使网页内容虽然零散 但是在版式排列上依然清晰有条理 承载内容的区    域被称为盒子模型</p>
+<p>盒子模型分为两种：</p>
+<p>\1. 标准盒模型：content(内容)+margin(外边距)+padding(内边距)+border(边框)</p>
+<p>\2. IE盒模型(怪异盒模型):content+margin</p>
+<p>标准盒模型下的宽：盒子总宽度/高度=width/height+padding+border+margin 这种模    型下 写得元素往往会必设置的宽高要多出一部分padding border margin</p>
+<p>IE盒模型下的宽:盒子总宽度和高度是包含内边距padding和变宽border宽度在内    的盒子总宽度/高度 = width/height+margin=内容区宽度/高度    +padding+border+margin 也就是说width = 内容区宽度+padding+border</p>
+<p>我们在开发中往往使用IE盒模型 只需要设置box-sizing:border-box即可</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
