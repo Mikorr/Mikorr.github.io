@@ -5,12 +5,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title></title>
+    <title>bind、call、apply区别 - null</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    
+    <meta name="description" content="bind、call、apply区别call apply bind作用是改变函数执行时的上下文 简而言之就是改变函数运行时的this指向
+call和apply都是对函数进行直接调用 改变this指向后,"> 
     <meta name="author" content="Mikor"> 
     <link rel="alternative" href="atom.xml" title="" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -18,16 +19,18 @@
     
     
     <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content=""/>
-    
+    <meta name="twitter:title" content="bind、call、apply区别 - null"/>
+    <meta name="twitter:description" content="bind、call、apply区别call apply bind作用是改变函数执行时的上下文 简而言之就是改变函数运行时的this指向
+call和apply都是对函数进行直接调用 改变this指向后,"/>
     
     
     
     
     <meta property="og:site_name" content=""/>
     <meta property="og:type" content="object"/>
-    <meta property="og:title" content=""/>
-    
+    <meta property="og:title" content="bind、call、apply区别 - null"/>
+    <meta property="og:description" content="bind、call、apply区别call apply bind作用是改变函数执行时的上下文 简而言之就是改变函数运行时的this指向
+call和apply都是对函数进行直接调用 改变this指向后,"/>
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
@@ -40,27 +43,89 @@
 <body class="loading">
     <span id="config-title" style="display:none"></span>
     <div id="loader"></div>
-    <div id="single" class="page">
-    <div id="top">
-        <a class="iconfont icon-left image-icon" href="javascript:history.back()"></a>
-    </div>
-    <div class="section">
-        <div class="article">
-            <div class="main">
-                <div class="content">
-                
-                    <div class="set">
-  <h2>分类</h2>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/">HTML</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/CSS/">CSS</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">2</span></li></ul>
-</div>
-
-                
-                </div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">bind、call、apply区别</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
             </div>
+            <div id="qr"></div>
         </div>
     </div>
+    <div class="scrollbar"></div>
 </div>
 
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">bind、call、apply区别</h1>
+        <div class="stuff">
+            <span>十一月 05, 2018</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/JS/" rel="tag">JS</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="bind、call、apply区别"><a href="#bind、call、apply区别" class="headerlink" title="bind、call、apply区别"></a>bind、call、apply区别</h2><p>call apply bind作用是改变函数执行时的上下文 简而言之就是改变函数运行时的this指向</p>
+<p>call和apply都是对函数进行直接调用 改变this指向后原函数会立即执行 且此方法只是临时改变this指向一次</p>
+<p>而bind方法改变this指向不会立即执行 而是返回一个永久改变this指向的函数</p>
+<p>三者第一个参数都是this指向的对象 如果没有这个参数或者参数为undefined或null 则默认指向全局window</p>
+<p>三者都可以传参 但是apply是数组 call是参数列表 apply和call是一次性传入 bind可以分为多次传入</p>
+<p>bind返回绑定this之后的函数 apply call是立即执行</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="https://m701.music.126.net/20221005153002/d381e2df5e80cf533212be8083a72d64/jdyyaac/obj/w5rDlsOJwrLDjj7CmsOj/15854242719/fcdb/876e/8611/81cc4933910b92ad658c9c367fefaa76.m4a"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="https://m701.music.126.net/20221005153224/5598792c0f2a2c85d5de595567e44b9a/jdyyaac/obj/w5rDlsOJwrLDjj7CmsOj/15532518523/41fa/8c74/b7c2/ff122551a20b5d77073d5a90e7b4e8ec.m4a"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
 </body>
 
 

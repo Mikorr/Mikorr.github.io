@@ -663,4 +663,87 @@
         <tag>CSS</tag>
       </tags>
   </entry>
+  <entry>
+    <title>BOM的理解</title>
+    <url>/2018/09/21/BOM%E7%9A%84%E7%90%86%E8%A7%A3/</url>
+    <content><![CDATA[<h2 id="BOM的理解"><a href="#BOM的理解" class="headerlink" title="BOM的理解"></a>BOM的理解</h2><p>BOM是浏览器对象模型 就是和浏览器有关系的 作用就是跟浏览器做交互效果</p>
+<p>比如如何进行页面前进后退刷新 窗口发生变化 滚动条的滚动</p>
+<p>浏览器全部内容可以看成DOM 整个浏览器可以看成BOM</p>
+<p>BOM包含DOM</p>
+<p>常用的BOM对象：</p>
+<p>BOM的核心是window 表示浏览器的一个实例</p>
+<p>在浏览器中 window对象有双重角色 即是浏览器窗口的一个接口 又是全局对象</p>
+<p>因此所有在全局作用域中声明的变量函数都会变成window对象的属性和方法</p>
+<p>document对象：文档对象</p>
+<p>location对象：浏览器当前url信息  只要修改location的属性 就会导致页面重新加载新的URL</p>
+<p>location.reload()可以重新刷新当前页面 这个方法会根据最有效的方    式刷新页面 如果页面自上一次请求以来没有改变过 页面就会从浏    览器缓存中重新加载 如果要强制从服务器中重新加载 穿第一个参数true即可</p>
+<p>navigator对象：浏览器本身信息 主要用来获取浏览器的属性 区分浏览器类型</p>
+<p>screen对象：客户端屏幕信息 保存的是客户端能力信息 就是浏览器窗口外面的客户端显示器的信息 比如像素宽度高度</p>
+<p>history对象：浏览器访问历史信息 主要用来操作浏览器URL的历史记录 可以通过参数向前向后或者指定URL跳转</p>
+<p>history.go() 接受一个整数数字或者字符串 像最近的一个记录中包含指定字符串的页面跳转</p>
+<p>参数为整数数字时 正数表示向前跳转指定页面 负数为向后跳转指定页面</p>
+<p>history.forward()向前跳转一个页面</p>
+<p>history.back()向后跳转一个页面</p>
+<p>history.length 获取历史记录数</p>
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>bind、call、apply区别</title>
+    <url>/2018/11/05/bind%E3%80%81call%E3%80%81apply%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<h2 id="bind、call、apply区别"><a href="#bind、call、apply区别" class="headerlink" title="bind、call、apply区别"></a>bind、call、apply区别</h2><p>call apply bind作用是改变函数执行时的上下文 简而言之就是改变函数运行时的this指向</p>
+<p>call和apply都是对函数进行直接调用 改变this指向后原函数会立即执行 且此方法只是临时改变this指向一次</p>
+<p>而bind方法改变this指向不会立即执行 而是返回一个永久改变this指向的函数</p>
+<p>三者第一个参数都是this指向的对象 如果没有这个参数或者参数为undefined或null 则默认指向全局window</p>
+<p>三者都可以传参 但是apply是数组 call是参数列表 apply和call是一次性传入 bind可以分为多次传入</p>
+<p>bind返回绑定this之后的函数 apply call是立即执行</p>
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DOM常见的操作</title>
+    <url>/2018/09/14/DOM%E5%B8%B8%E8%A7%81%E7%9A%84%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h2 id="DOM常见的操作"><a href="#DOM常见的操作" class="headerlink" title="DOM常见的操作"></a>DOM常见的操作</h2><p>DOM 文档对象模式是html和XML文档的编程接口</p>
+<p>提供了对文档结构化的表述 并定义了一种方式可以使从程序中对该结构进行访问     从而改变文档的结构样式和内容 任何HTML或XML文档都可以用DOM表示为一    个由节点构成的层级结构</p>
+<p>获取节点：</p>
+<p>document.getElementById(id) 通过id获取元素 返回一个元素对象</p>
+<p>document.getElementByName(name) 通过name属性获取id返回元素对象数组</p>
+<p>document.getElementByClassName(className) 通过class获取元素 返回元素    对象数组</p>
+<p>document.getElementByTagName(tagName)  通过标签名获取元素 返回元素    对象数组</p>
+<p>document.querySelector()  es6标准 通过css选择器获取元素 返回第一个匹    配元素 没有指定的元素返回null</p>
+<p>document.querySelectorAll() es6标准 通过css选择器获取元素 返回类数组集    合 没有相匹配的返回空节点列表</p>
+<p>获取/设置元素的属性值:</p>
+<p>element.getArrtibute(attributeName) 括号传入属性名 返回对应属性的属性值</p>
+<p>Element.setAttribute(attributeName,attributeValue) 传入属性名及设置的值</p>
+<p>创建节点node：</p>
+<p>document.createElement() 创建一个html元素 参数为要创建的标签名</p>
+<p>document.createTextNode(string) 创建一个文本节点</p>
+<p>Document.createDocumentFragment() 创建一个文档碎片 表示一种轻量级的    文档 主要用来存储临时节点 然后把文档碎片内容一次性添加到DOM中</p>
+<p>document.createAttribute(class) 创建一个属性节点 可以是自定义属性</p>
+<p>增添节点:</p>
+<p>element.innerHTML 如果这个DOM节点是空的 直接使用innerHTML就可以修    改DOM节点的内容 相当于添加新的DOM节点</p>
+<p>element.appendChild(Node) 往element内部最后面添加一个节点 参数是节点    类型</p>
+<p>element.insertBefore(newNode,existingNode) 把子节点插入existingNode之前 </p>
+<p>element.setArrtibute(‘class’,’white’) 在指定元素中添加一个属性节点 如果元素已有该属性    改变属性值 第一个参数为属性名 第二个参数为属性值</p>
+<p>删除节点:</p>
+<p>Element.removeChild(Node) 删除当前节点下指定的子节点 删除成功返回被    删除的节点 否组返回null</p>
+<p>Element.removeAttribute(new,old)</p>
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
 </search>
