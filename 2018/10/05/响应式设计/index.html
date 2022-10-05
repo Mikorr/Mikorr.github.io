@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>响应式设计 - null</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="响应式设计是一种网络页面设计布局 页面的设计与开发应当根据用户行为以及设备环境(系统平台.屏幕尺寸.屏幕定向等)进行相应的响应和调整
+响应式网站常见特点：同时适配PC+平板+手机等
+标签导航在接近手,"> 
+    <meta name="author" content="Mikor"> 
+    <link rel="alternative" href="atom.xml" title="" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="响应式设计 - null"/>
+    <meta name="twitter:description" content="响应式设计是一种网络页面设计布局 页面的设计与开发应当根据用户行为以及设备环境(系统平台.屏幕尺寸.屏幕定向等)进行相应的响应和调整
+响应式网站常见特点：同时适配PC+平板+手机等
+标签导航在接近手,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content=""/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="响应式设计 - null"/>
+    <meta property="og:description" content="响应式设计是一种网络页面设计布局 页面的设计与开发应当根据用户行为以及设备环境(系统平台.屏幕尺寸.屏幕定向等)进行相应的响应和调整
+响应式网站常见特点：同时适配PC+平板+手机等
+标签导航在接近手,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none"></span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">响应式设计</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">响应式设计</h1>
+        <div class="stuff">
+            <span>十月 05, 2018</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>响应式设计是一种网络页面设计布局 页面的设计与开发应当根据用户行为以及设备环境(系统平台.屏幕尺寸.屏幕定向等)进行相应的响应和调整</p>
+<p>响应式网站常见特点：同时适配PC+平板+手机等</p>
+<p>标签导航在接近手持终端设备时改变为经典的抽屉式导航</p>
+<p>网站的布局会根据视口来调整模块的大小和位置</p>
+<p>实现方式：响应式设计的基本原理就是通过媒体查询检测不同设备屏幕尺寸做处理为了处理移动端 页面头部必须有meta声明viewport</p>
+<p>&lt;meta name=”viewport” content=”width=device-width, initial-scale=1,     maximum-scale=1, user-scalable=no”&gt;</p>
+<p>属性对应：</p>
+<p>width=device-width:自适应手机屏幕的尺寸宽度</p>
+<p>maximum-scale:缩放比例的最大值</p>
+<p>Inital-scale:缩放的初始化</p>
+<p>User-scalable:用户可以缩放的操作</p>
+<p>实现响应式布局的方式：</p>
+<p>媒体查询</p>
+<p>Css3中增加了更多的媒体查询 就像if条件表达式一样 可以设置不同类型的媒体条件 并根据对应的条件给响应符合条件的媒体调用相对应的样    式表 使用@Media查询 可以针对不同的媒体类型定义不同的样式</p>
+<p>当重置浏览器大小的过程中 页面也会根据浏览器的宽度和高度重新渲染页面</p>
+<p>语法规范：</p>
+<p>@media mediatype and|not|only (media feature){</p>
+<p>css-code;</p>
+<p>}</p>
+<p>用@media开通</p>
+<p>mediatype媒体类型</p>
+<p>关键字and not only</p>
+<p>media feature 媒体特性 必须有小括号包含</p>
+<p>mediatype查询类型：将不同的终端设备划分为不同类型 称为媒体类型</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>解释说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>all</td>
+<td>用于所有设备</td>
+</tr>
+<tr>
+<td>print</td>
+<td>用于打印机和打印预览</td>
+</tr>
+<tr>
+<td>scree</td>
+<td>用于电脑屏幕 平板电脑 智能手机等</td>
+</tr>
+</tbody></table>
+<p>关键字：将媒体类型或多个特性连接到一起作为媒体查询的条件</p>
+<p>and:可以将多个媒体特性连接到一起 相当于且的意思</p>
+<p>not:排除某个媒体类型 相当于非的意思 可以省略</p>
+<p>only:指定某个特定的媒体类型 可省略</p>
+<p>媒体特性：每种媒体类型都具备各自不同的特性 根据不同媒体类型特性设置不同的展示风格</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>解释说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>width</td>
+<td>定义输出设备中页面可见区域的宽度</td>
+</tr>
+<tr>
+<td>min-width</td>
+<td>定义输出设备中页面最小可见区域的宽度</td>
+</tr>
+<tr>
+<td>max-width</td>
+<td>定义输出设备中页面最大可见区域的宽度</td>
+</tr>
+</tbody></table>
+<p>百分比</p>
+<p>通过百分比单位%来实现响应式的效果 比如当浏览器宽度或高度发生变    化时 通过百分比单位 可以使得浏览器中的组件的宽和高随着浏览器的    变化而变化 从而实现响应式的效果 不能设置字体大小</p>
+<p>vw/vh</p>
+<p>vw表示相对于视图窗口的宽度 vh表示相对于视图窗口高度 任一层级元    素 在使用vw单位的情况下 1vw等于视图宽度的百分之一 1vh等于视图    高度的百分之一 与百分比    布局很相似 与百分比不同的是可以设置字体    大小 缺点兼容性较差</p>
+<p>rem </p>
+<p>rem相对于根元素html的font-size属性 默认情况下浏览器字体大小为    16px 可以利用媒体查询 针对不同设备分辨率修改font-size的值</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="https://m701.music.126.net/20221005153002/d381e2df5e80cf533212be8083a72d64/jdyyaac/obj/w5rDlsOJwrLDjj7CmsOj/15854242719/fcdb/876e/8611/81cc4933910b92ad658c9c367fefaa76.m4a"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="https://m701.music.126.net/20221005153224/5598792c0f2a2c85d5de595567e44b9a/jdyyaac/obj/w5rDlsOJwrLDjj7CmsOj/15532518523/41fa/8c74/b7c2/ff122551a20b5d77073d5a90e7b4e8ec.m4a"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

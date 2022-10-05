@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>事件循环 - null</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="事件循环Js是一门单线程的语言 同一时间内只能做一件事 每次只能执行一项任务 其他任务都得按照顺序排队等待被执行 只有当前任务执行完成之后才会执行下一个任务  任务分为同步任务和异步任务 异步任务永,"> 
+    <meta name="author" content="Mikor"> 
+    <link rel="alternative" href="atom.xml" title="" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="事件循环 - null"/>
+    <meta name="twitter:description" content="事件循环Js是一门单线程的语言 同一时间内只能做一件事 每次只能执行一项任务 其他任务都得按照顺序排队等待被执行 只有当前任务执行完成之后才会执行下一个任务  任务分为同步任务和异步任务 异步任务永,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content=""/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="事件循环 - null"/>
+    <meta property="og:description" content="事件循环Js是一门单线程的语言 同一时间内只能做一件事 每次只能执行一项任务 其他任务都得按照顺序排队等待被执行 只有当前任务执行完成之后才会执行下一个任务  任务分为同步任务和异步任务 异步任务永,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none"></span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">事件循环</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">事件循环</h1>
+        <div class="stuff">
+            <span>十一月 07, 2018</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/JS/" rel="tag">JS</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h2><p>Js是一门单线程的语言 同一时间内只能做一件事 每次只能执行一项任务 其他任务都得按照顺序排队等待被执行 只有当前任务执行完成之后才会执行下一个任务  任务分为同步任务和异步任务 异步任务永远在同步任务执行完成后才执行</p>
+<p>注意：异步函数在响应辅助线程中处理完成后 即异步函数达到触发条件了 就把回调函数推入任务队列中 而不是说注册一个异步任务就会被放在任务队列中</p>
+<p>主线程不断从任务队列中读取事件  这个过程是循环不断的 这种运行机制就叫做事件循环</p>
+<p>事件循环中的两种任务：</p>
+<p>在js中 除了广义的同步任务和异步任务 异步任务还可以细分 一种是宏任务(MacroTask) 一种是微任务(MicroTask)</p>
+<p>每次单个宏任务执行完毕后 检查微任务队列是否为空 如果不为空 会按照先入先出的规则全部执行完微任务后 清空微任务队列 然后再执行下一个宏任务 依次循环</p>
+<p>如何区分微任务 宏任务？</p>
+<p>宏任务：macrotask可以理解为每次执行栈执行的代码就是一个宏任务(包括每次从事件队列中获取一个事件回调并放到执行栈中执行) 一般包括script setTimeout     setInterval setImmediate IO操作</p>
+<p>微任务：microtask 又称为job 可以理解是当前task执行结束后立即执行的任务 包括promise then cath finally回调 mutationObserver回调</p>
+<p>为什么异步要区分宏任务与微任务？</p>
+<p>因为事件队列其实是一个先进先出的数据结构 排在前面的事件会优先被主线程读取 如果突然来了一个优先级更高的任务 还排队就很不理性化 所以需要引入微任务</p>
+<p>在当前微任务没有执行完成时 不会执行下一次宏任务的</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="https://m701.music.126.net/20221005153002/d381e2df5e80cf533212be8083a72d64/jdyyaac/obj/w5rDlsOJwrLDjj7CmsOj/15854242719/fcdb/876e/8611/81cc4933910b92ad658c9c367fefaa76.m4a"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="https://m701.music.126.net/20221005153224/5598792c0f2a2c85d5de595567e44b9a/jdyyaac/obj/w5rDlsOJwrLDjj7CmsOj/15532518523/41fa/8c74/b7c2/ff122551a20b5d77073d5a90e7b4e8ec.m4a"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
