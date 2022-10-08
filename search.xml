@@ -410,11 +410,9 @@
 <p>a标签字体颜色不能被继承</p>
 ]]></content>
       <categories>
-        <category>HTML</category>
         <category>CSS</category>
       </categories>
       <tags>
-        <tag>HTML</tag>
         <tag>CSS</tag>
       </tags>
   </entry>
@@ -738,6 +736,292 @@
 <p>删除节点:</p>
 <p>Element.removeChild(Node) 删除当前节点下指定的子节点 删除成功返回被    删除的节点 否组返回null</p>
 <p>Element.removeAttribute(new,old)</p>
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Javascript本地存储的方式有哪些</title>
+    <url>/2018/12/06/Javascript%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B/</url>
+    <content><![CDATA[<h2 id="Javascript本地存储的方式有哪些"><a href="#Javascript本地存储的方式有哪些" class="headerlink" title="Javascript本地存储的方式有哪些"></a>Javascript本地存储的方式有哪些</h2><p>在前端开发中 偶尔需要存储一些比如用户信息 登录状态 历史记录等常量数据 用于后续二次调用 避免刷新后丢失 就需要使用本地存储了</p>
+<p>在JS中 提供了四种可用的本地存储</p>
+<p>cookie</p>
+<p>类型为小型文本文件 指某些网站为了辨别用户存储在用户本地终端上的数据 为了解决http无状态导致的问题</p>
+<p>一般不超过4kb  由名称 值 和其他用于控制cookie有效期 安全性 适用范围的可选属性组成</p>
+<p>Cookie在每次请求中都会被发送 如果不使用HTTPS加密 保存的信息很容易被窃取 导致安全风险</p>
+<p>sessionStorage</p>
+<p>与localStorage基本相同 唯一不同的是生命周期 一旦页面关闭 sessionStorage会删除数据</p>
+<p>localStorage</p>
+<p>生命周期：持久化的本地存储 除非主动删除 否则数据永远不会过期</p>
+<p>存储的信息在同一域中共享</p>
+<p>当本页操作了localStorage 本页面不会触发storage事件 别的页面会触发storage</p>
+<p>大小在5MB左右</p>
+<p>本质上是对字符串的读取 如果存储内容多的话消耗内存空间 导致页面变卡</p>
+<p>受同源策略的限制</p>
+<p>localStorage无法像cookie一样设置过期时间 </p>
+<p>只能存入字符串 无法直接存入对象</p>
+<p>indexedDB</p>
+<p>是一种低级API 用于客户端存储大量机构化数据 该API使用索引实现对数据的高性能搜索</p>
+<p>对于存储大量结构化数据来说 这种方法不太有用</p>
+<p>优点：<br>        存储量理论上无上限</p>
+<p>所有操作都是异步 相比localStorage同步操作性能更高 尤其数据量较大时</p>
+<p>原生支持存储js对象</p>
+<p>数据库能干的事情都能干</p>
+<p>缺点：<br>        操作繁琐  本身有门槛</p>
+<p>区别：<br>        存储大小：cookie数据大小不能超过4k sessionStorage和localStorage虽然也有限制 但是比cookie大得多 indexDB无上限</p>
+<p>有效时间：localStorage存储持久数据  浏览器关闭后数据不丢失除非主动删除</p>
+<p>sessionStorage数据在当前浏览器页面关闭后自动删除 cookie设置的cookie过期时间之前一直有效</p>
+<p>数据与服务器之间交互：cookie数据自动传递到服务器 服务器端也可以写cookie到客户端</p>
+<p>sessionStorage和localStorage不会自动把数据发给服务器 仅在本地保存</p>
+<p>应用场景：</p>
+<p>标记用户跟踪用户行为 推荐使用cookie</p>
+<p>适合长期保存在本地的数据 推荐使用localStorage</p>
+<p>敏感账号一次性登录 使用sessionStorage</p>
+<p>存储大量数据 在线文档保存编辑历史 推荐使用indexedDB</p>
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>new操作符</title>
+    <url>/2019/01/16/new%E6%93%8D%E4%BD%9C%E7%AC%A6/</url>
+    <content><![CDATA[<h2 id="new操作符"><a href="#new操作符" class="headerlink" title="new操作符"></a>new操作符</h2><p>在js中 new操作符用于创建一个给定构造函数的实例对象</p>
+<p>new可以创建一个实例对象  对象是给定的构造函数</p>
+<p>new通过构造函数创建出来的实例可以访问到构造函数中的属性</p>
+<p>new通过构造函数创建出来的实例可以访问到构造函数原型链中的属性(即实例与构造函数通过原型链连接了起来)</p>
+<p>构造函数返回一个原始值 返回值不会起到作用</p>
+<p>构造函数返回一个对象 这个返回值会被正常使用</p>
+<p>流程：<br>        创建一个新的对象obj</p>
+<p>将对象与构造函数通过原型链连接起来</p>
+<p>将构造函数中的this绑定到新建的对象上</p>
+<p>根据构造函数返回类型判断 如果是原始值被忽略 如果是对象 需要正常处理</p>
+<p>function create(fn,…args){</p>
+<p>var obj = {}</p>
+<p>Object.setPrototypeOf(obj,fn.prototype)</p>
+<p>var result = fn.apply(obj,args)</p>
+<p>return result instanceof Object ? result : obj</p>
+<p>}</p>
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>null，undefined的区别</title>
+    <url>/2019/03/12/null%EF%BC%8Cundefined%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<p>Undefined表示变量声明过但并未赋过值 他是所有未赋值变量默认值</p>
+<p>null表示一个变量将来可能指向一个对象 一般用于主动释放指向对象的引用</p>
+<p>null 表示为空 代表此处不应该有值的存在 一个对象可以是null 代表是一个空对象 null本身也是对象</p>
+<p>Undefined表示不存在 js是一门动态类型语言 成员除了表示存在的空值外 还有可能根本就不存在</p>
+<p>Null：<br>        用作函数的参数 表示该函数的参数不是对象</p>
+<p>用作对象原型链的终点</p>
+<p>undefined：</p>
+<p>函数没有返回值 默认返回undefined</p>
+<p>变量已声明未赋值 为undefined</p>
+<p>对象中没有赋值的属性 值为undefined</p>
+<p>调用函数时  应该提供的参数没有提供 参数等于undefined</p>
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>this对象</title>
+    <url>/2019/01/11/this%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h2 id="this对象"><a href="#this对象" class="headerlink" title="this对象"></a>this对象</h2><p>this是js中很常见的关键字 但是this在函数的不同执行环境内 所代表的是很灵活的</p>
+<p>因此很难知道this代表什么 只有在函数运行后 才能知道它代表什么</p>
+<p>在绝大多数情况下 函数的调用方式决定了this的值</p>
+<p>This关键字是函数运行时自动生成的一个内部对象 只能在函数内部使用 总指向调用他的对象</p>
+<p>将this分为严格模式下的this和非严格模式下的this</p>
+<p>在严格模式下调用一个普通函数 this表示undefined</p>
+<p>非严格模式下相同代码输出Window</p>
+<p>非严格模式下：</p>
+<p>如果this在普通函数中 this表示window 即普通函数调用 this表示window</p>
+<p>在一个对象中 如果有方法 通过这个对象调用方法 方法中的this表示这个对象</p>
+<p>在IIFE中 this也表示window</p>
+<p>事件绑定 事件处理程序 事件发生时 浏览器帮我0们调用这个函数 this表示事件源</p>
+<p>绑定规则：根据不同的使用场合 this有不同的值</p>
+<p>默认绑定</p>
+<p>全局环境中定义函数 内部使用this关键字 this指向window</p>
+<p>隐式绑定</p>
+<p>函数还可以作为某个对象的方法调用 this指的是上级对象</p>
+<p>New绑定</p>
+<p>通过构建函数new关键字生成一个实例对象 this指向实例对象</p>
+<p>new过程遇到return对象 this指向为返回的对象</p>
+<p>return的是简单类型 this指向实例对象</p>
+<p>如果返回null null虽然也是对象 但是this仍然指向实例对象</p>
+<p>显示修改</p>
+<p>apply() call() bind()是函数的一个方法 作用是改变函数的调用对象 第一个参数就表示改变后的调用这个函数的对象 因此 this指的就是第一个参数</p>
+<p>箭头函数：<br>    在es6语法中提供了箭头函数语法 让我们在代码书写时就能确定this的指向</p>
+<p>当我们使用箭头函数的时候 箭头函数默认帮我们绑定外层this的值 所以在箭头函数中this的值和外层的this一样</p>
+<p>箭头函数中的this引用的就是最近作用域的this</p>
+<p>向外层作用域中一层一层查找this 直到有this的定义</p>
+<p>有的箭头函数没有自己的this 不适合定义一个对象的方法</p>
+<p>箭头函数不能作为构建函数</p>
+<p>优先级：</p>
+<p>new绑定优先级&gt;显示绑定优先级&gt;隐式绑定优先级&gt;默认绑定优先级</p>
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>tree-shaking</title>
+    <url>/2019/03/06/tree-shaking/</url>
+    <content><![CDATA[<h2 id="tree-shaking"><a href="#tree-shaking" class="headerlink" title="tree-shaking"></a>tree-shaking</h2><p>Tree Shaking 指的就是当我引入一个模块的时候，我不引入这个模块的所有代码，我只引入我需要的代码，这就需要借助 webpack 里面自带的 Tree Shaking 这个功能来帮我们实现。</p>
+<p>官方有标准的说法：Tree-shaking的本质是消除无用的js代码。无用代码消除在广泛存在于传统的编程语言编译器中，编译器可以判断出某些代码根本不影响输出，然后消除这些代码，这个称之为DCE（dead code elimination）</p>
+<p>在 webpack 项目中，有一个入口文件，相当于一棵树的主干，入口文件有很多依赖的模块，相当于树枝。实际情况中，虽然依赖了某个模块，但其实只使用其中的某些功能。通过 Tree-Shaking，将没有使用的模块摇掉，这样来达到删除无用代码的目的。</p>
+<p>在production 模式下不用在webpack.config.js中配置</p>
+<p>optimization: {<br>usedExports: true</p>
+<p>}<br>当在development模式下配置tree shaking时：<br>webpack.config.js</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//HtmlWebpackPlugin</span></span><br><span class="line"><span class="comment">//当我们整个打包过程结束的时候，自动生成一个html文件，</span></span><br><span class="line"><span class="comment">//并把打包生成的自动引入到html这个文件中；</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> <span class="title class_">HtmlWebpackPlugin</span> = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> &#123; <span class="title class_">CleanWebpackPlugin</span> &#125; = <span class="built_in">require</span>(<span class="string">&#x27;clean-webpack-plugin&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">&#x27;webpack&#x27;</span>)</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="comment">//打包模式，当为‘production’，打包后的文件会被压缩，</span></span><br><span class="line">    <span class="comment">//当为‘development’时打包后的文件不会被压缩,按照开发环境进行打包</span></span><br><span class="line">    <span class="attr">mode</span>: <span class="string">&#x27;development&#x27;</span>, <span class="comment">//在开发者模式中SourceMap默认已经被配置在项目里了。</span></span><br><span class="line">    <span class="comment">// devtool: &#x27;none&#x27;, //关闭SourceMap</span></span><br><span class="line">    <span class="comment">//cheap：在生成SourceMap的时候，可以不带列信息，只带行信息,不要包含loader里面的SourceMap的生成，</span></span><br><span class="line">    <span class="comment">//只对业务代码进行SourceMap的生成</span></span><br><span class="line">    <span class="comment">//module:对loader里面的代码也进行一个SourceMap的生成</span></span><br><span class="line">    <span class="comment">//eval：eval是一种执行方式</span></span><br><span class="line">    <span class="attr">devtool</span>: <span class="string">&#x27;cheap-module-eval-source-map&#x27;</span>, <span class="comment">//打开SourceMap</span></span><br><span class="line">    <span class="comment">// devtool: &#x27;cheap-module-source-map&#x27;, //要线上的代码可以映射</span></span><br><span class="line">    <span class="comment">// 打包的入口文件</span></span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;./src/index2.js&#x27;</span>,</span><br><span class="line">    <span class="comment">// entry: &#123;</span></span><br><span class="line">    <span class="comment">//     main: &#x27;./src/index2.js&#x27;</span></span><br><span class="line">    <span class="comment">// &#125;,</span></span><br><span class="line">    <span class="attr">devServer</span>: &#123;</span><br><span class="line">        <span class="attr">contentBase</span>: <span class="string">&#x27;./dist&#x27;</span>, <span class="comment">//我们要在哪一个目录下去启动这个服务器</span></span><br><span class="line">        <span class="attr">open</span>: <span class="literal">true</span>, <span class="comment">//会自动的打开一个浏览器，然后自动访问服务器的地址（localhost:8080）</span></span><br><span class="line">        <span class="attr">hot</span>: <span class="literal">true</span>, <span class="comment">//指是否支持热更新（hmr）</span></span><br><span class="line">        <span class="attr">hotOnly</span>: <span class="literal">true</span>, <span class="comment">//即使不支持hmr或者hmr有问题,也不刷新浏览器</span></span><br><span class="line">        <span class="attr">proxy</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;/api&#x27;</span>: &#123;</span><br><span class="line">                <span class="comment">//当访问localhost:8080/api的时，它会直接帮你转发到http://localhost:3000</span></span><br><span class="line">                <span class="attr">target</span>: <span class="string">&#x27;http://localhost:3000&#x27;</span>,</span><br><span class="line">                <span class="attr">pathRewrite</span>: &#123; <span class="string">&#x27;^/api&#x27;</span>: <span class="string">&#x27;&#x27;</span> &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">module</span>: &#123;</span><br><span class="line">        <span class="attr">rules</span>: [&#123;</span><br><span class="line">                <span class="attr">test</span>: <span class="regexp">/\.js$/</span>,</span><br><span class="line">                <span class="attr">exclude</span>: <span class="regexp">/node_modules/</span>,</span><br><span class="line">                <span class="attr">loader</span>: <span class="string">&#x27;babel-loader&#x27;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">test</span>: <span class="regexp">/\.(png|jpg|gif)$/</span>,</span><br><span class="line">                <span class="attr">use</span>: &#123;</span><br><span class="line">                    <span class="attr">loader</span>: <span class="string">&#x27;url-loader&#x27;</span>,</span><br><span class="line">                    <span class="attr">options</span>: &#123;</span><br><span class="line">                        <span class="comment">//url-loader会把图片转化成一个base64的字符串，</span></span><br><span class="line">                        <span class="comment">//然后直接放到bundle.js里，而不是单独生成一个图片文件，</span></span><br><span class="line">                        <span class="comment">//好处：不用再额外的请求图片的地址，省了一次http请求；</span></span><br><span class="line">                        <span class="comment">//缺点：如果图片特别大过大，打包生成的js文件就会很大，</span></span><br><span class="line">                        <span class="comment">//那么加载js文件的时间就会很长，所以在一开始很长的时间里，页面上什么都显示不出来；</span></span><br><span class="line">                        <span class="comment">//所以，url-loader最佳的使用方式：加一个limit</span></span><br><span class="line">                        <span class="comment">//如果图片小于limit的值就把图片变为一个base64的字符串放到打包好的js中，</span></span><br><span class="line">                        <span class="comment">//若大于limit的值，就以file-loader的生成一个图片放到dist目录下。</span></span><br><span class="line">                        <span class="attr">limit</span>: <span class="number">8192</span>, <span class="comment">//好处是可以对小图片的http请求数减少，提升网页加载数度</span></span><br><span class="line">                        <span class="attr">name</span>: <span class="string">&#x27;images/[name].[hash].[ext]&#x27;</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">test</span>: <span class="regexp">/\.(css|scss|less)$/</span>,</span><br><span class="line"> </span><br><span class="line">                <span class="comment">//&quot;css-loader&quot;:会帮我们分析出几个css文件之间的关系，最终把这些css文件合并成一段css;</span></span><br><span class="line">                <span class="comment">//&quot;style-loader&quot;:会把‘css-loader’生成的内容挂在到页面的head部分</span></span><br><span class="line">                <span class="comment">//在webpack的配置中，loader是有先后执行顺序的，</span></span><br><span class="line">                <span class="comment">//loader的执行顺序是从下到上，从右到左；</span></span><br><span class="line">                <span class="comment">//“sass-loader”会先对sass代码进行翻译，翻译为css代码后给到css-loader,</span></span><br><span class="line">                <span class="comment">//都处理好了之后再交给‘style-loader’挂在到页面上</span></span><br><span class="line">                <span class="comment">//postcss-loader会自动添加css3的厂商前缀；比如：  transform: translate(100px, 100px)</span></span><br><span class="line">                <span class="attr">use</span>: [</span><br><span class="line">                    <span class="string">&#x27;style-loader&#x27;</span>,</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="attr">loader</span>: <span class="string">&#x27;css-loader&#x27;</span>,</span><br><span class="line">                        <span class="attr">options</span>: &#123;</span><br><span class="line">                            <span class="attr">importLoaders</span>: <span class="number">2</span>,</span><br><span class="line">                            <span class="attr">modules</span>: <span class="literal">true</span> <span class="comment">//使得css模块化，</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="string">&#x27;postcss-loader&#x27;</span>,</span><br><span class="line">                    <span class="string">&#x27;sass-loader&#x27;</span></span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// 可以打包字体文件</span></span><br><span class="line">                <span class="attr">test</span>: <span class="regexp">/\.(eot|ttf|svg)$/</span>,</span><br><span class="line">                <span class="attr">use</span>: &#123;</span><br><span class="line">                    <span class="attr">loader</span>: <span class="string">&#x27;file-loader&#x27;</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 打包的出口文件</span></span><br><span class="line">    <span class="attr">output</span>: &#123;</span><br><span class="line">        <span class="comment">// 打包后的文件名</span></span><br><span class="line">        <span class="comment">// filename: &#x27;bundle.js&#x27;,</span></span><br><span class="line">        <span class="attr">filename</span>: <span class="string">&#x27;[name].js&#x27;</span>, <span class="comment">//name就是entry值的key:&#x27;main&#x27;,&#x27;sub&#x27;</span></span><br><span class="line">        <span class="comment">// 打包后的文件目录为&#x27;dist&#x27;</span></span><br><span class="line">        <span class="attr">path</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;dist&#x27;</span>),</span><br><span class="line">        <span class="attr">publicPath</span>: <span class="string">&#x27;/&#x27;</span> <span class="comment">//表示的是我所有的打包生成的文件之间的引用前面都加一个根路径</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//plugin可以在webpack运行到某个时刻的时候，帮你做一些事情(类似生命周期函数)</span></span><br><span class="line">    <span class="attr">plugins</span>: [</span><br><span class="line">        <span class="comment">// CleanWebpackPlugin可以在每次打包的时候帮我们对dist目录做一个清空</span></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">CleanWebpackPlugin</span>(),</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">HtmlWebpackPlugin</span>(&#123;</span><br><span class="line">            <span class="comment">//HtmlWebpackPlugin帮我们自动的生成一个dist目录下的html文件</span></span><br><span class="line">            <span class="attr">template</span>: <span class="string">&#x27;./src/index.html&#x27;</span></span><br><span class="line">        &#125;),</span><br><span class="line">        <span class="comment">//HotModuleReplacementPlugin帮我们实现HMR</span></span><br><span class="line">        <span class="keyword">new</span> webpack.<span class="title class_">HotModuleReplacementPlugin</span>()</span><br><span class="line">    ],</span><br><span class="line">    <span class="comment">//在开发模式下配置 tree shakeing</span></span><br><span class="line">    <span class="attr">optimization</span>: &#123;</span><br><span class="line">        <span class="attr">usedExports</span>: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在 package.json 中配置:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;name&quot;</span>: <span class="string">&quot;webpack-demo&quot;</span>,</span><br><span class="line"><span class="comment">//@babel/polyfill和css文件不使用tree shaking</span></span><br><span class="line">    <span class="string">&quot;sideEffects&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;@babel/polyfill&quot;</span>,</span><br><span class="line">        <span class="string">&quot;*.css&quot;</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;description&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="string">&quot;main&quot;</span>: <span class="string">&quot;index.js&quot;</span>,</span><br><span class="line">    <span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;bundle&quot;</span>: <span class="string">&quot;webpack&quot;</span>,</span><br><span class="line">        <span class="string">&quot;watch&quot;</span>: <span class="string">&quot;webpack --watch&quot;</span>,</span><br><span class="line">        <span class="string">&quot;start&quot;</span>: <span class="string">&quot;webpack-dev-server&quot;</span>,</span><br><span class="line">        <span class="string">&quot;server&quot;</span>: <span class="string">&quot;node server.js&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;author&quot;</span>: <span class="string">&quot;susie&quot;</span>,</span><br><span class="line">    <span class="string">&quot;license&quot;</span>: <span class="string">&quot;ISC&quot;</span>,</span><br><span class="line">    <span class="string">&quot;devDependencies&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;@babel/core&quot;</span>: <span class="string">&quot;^7.5.4&quot;</span>,</span><br><span class="line">        <span class="string">&quot;@babel/plugin-transform-runtime&quot;</span>: <span class="string">&quot;^7.5.0&quot;</span>,</span><br><span class="line">        <span class="string">&quot;@babel/preset-env&quot;</span>: <span class="string">&quot;^7.5.4&quot;</span>,</span><br><span class="line">        <span class="string">&quot;@babel/preset-react&quot;</span>: <span class="string">&quot;^7.0.0&quot;</span>,</span><br><span class="line">        <span class="string">&quot;autoprefixer&quot;</span>: <span class="string">&quot;^9.6.1&quot;</span>,</span><br><span class="line">        <span class="string">&quot;babel-loader&quot;</span>: <span class="string">&quot;^8.0.6&quot;</span>,</span><br><span class="line">        <span class="string">&quot;clean-webpack-plugin&quot;</span>: <span class="string">&quot;^3.0.0&quot;</span>,</span><br><span class="line">        <span class="string">&quot;css-loader&quot;</span>: <span class="string">&quot;^3.0.0&quot;</span>,</span><br><span class="line">        <span class="string">&quot;file-loader&quot;</span>: <span class="string">&quot;^4.0.0&quot;</span>,</span><br><span class="line">        <span class="string">&quot;html-webpack-plugin&quot;</span>: <span class="string">&quot;^3.2.0&quot;</span>,</span><br><span class="line">        <span class="string">&quot;node-sass&quot;</span>: <span class="string">&quot;^4.12.0&quot;</span>,</span><br><span class="line">        <span class="string">&quot;postcss-loader&quot;</span>: <span class="string">&quot;^3.0.0&quot;</span>,</span><br><span class="line">        <span class="string">&quot;sass-loader&quot;</span>: <span class="string">&quot;^7.1.0&quot;</span>,</span><br><span class="line">        <span class="string">&quot;style-loader&quot;</span>: <span class="string">&quot;^0.23.1&quot;</span>,</span><br><span class="line">        <span class="string">&quot;url-loader&quot;</span>: <span class="string">&quot;^2.0.1&quot;</span>,</span><br><span class="line">        <span class="string">&quot;webpack&quot;</span>: <span class="string">&quot;^4.35.3&quot;</span>,</span><br><span class="line">        <span class="string">&quot;webpack-cli&quot;</span>: <span class="string">&quot;^3.3.5&quot;</span>,</span><br><span class="line">        <span class="string">&quot;webpack-dev-server&quot;</span>: <span class="string">&quot;^3.7.2&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;@babel/polyfill&quot;</span>: <span class="string">&quot;^7.4.4&quot;</span>,</span><br><span class="line">        <span class="string">&quot;@babel/runtime&quot;</span>: <span class="string">&quot;^7.5.4&quot;</span>,</span><br><span class="line">        <span class="string">&quot;@babel/runtime-corejs2&quot;</span>: <span class="string">&quot;^7.5.4&quot;</span>,</span><br><span class="line">        <span class="string">&quot;react&quot;</span>: <span class="string">&quot;^16.8.6&quot;</span>,</span><br><span class="line">        <span class="string">&quot;react-dom&quot;</span>: <span class="string">&quot;^16.8.6&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如果需要对某个模块不进行Tree Shaking</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;sideEffects&quot;</span>: [<span class="string">&quot;@babel/poly-fill&quot;</span>],  <span class="comment">//该模块不进行Tree Shaking</span></span><br></pre></td></tr></table></figure>
+
+<p>为什么某些引入模块不希望进行Tree Shaking呢？</p>
+<p>下面引入的style.css模块，如果也使用tree shaking，由于css文件没有导出任何模块，那么就有可能在打包的时候该引入模块就被摇晃掉了，导致bug。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./style.css&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123;add&#125; <span class="keyword">from</span> <span class="string">&#x27;./math.js&#x27;</span></span><br><span class="line"><span class="title function_">add</span>(<span class="number">1</span>,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<p>在package.json中进行配置，即匹配到的任何css文件都不进行Tree Shaking</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;name&quot;</span>:<span class="string">&quot;lesson&quot;</span>,</span><br><span class="line">    <span class="string">&quot;sideEffects&quot;</span>:[</span><br><span class="line">        <span class="string">&quot;*.css&quot;</span></span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>事件代理</title>
+    <url>/2018/01/09/%E4%BA%8B%E4%BB%B6%E4%BB%A3%E7%90%86/</url>
+    <content><![CDATA[<h2 id="事件代理"><a href="#事件代理" class="headerlink" title="事件代理"></a>事件代理</h2><p>事件代理 又称之为事件委托 是js中绑定事件的常用技巧 顾名思义 事件代理即是把    原本需要绑定的事件委托给父元素 让父元素担当事件监听的职务 事件代理的原理是    DOM元素的事件冒泡 使用事件代理的好处是可以提高性能</p>
+<p>可以大量节省内存占用 减少时间注册  比如在table上代理所有td的click事件</p>
+<p>可以实现当新增子对象时无需再次对其绑定</p>
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>原型和原型链</title>
+    <url>/2019/01/06/%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/</url>
+    <content><![CDATA[<h2 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h2><p>原型：</p>
+<p>js规定 每个对象都有一个prototype对象属性 指向另一个对象 prototype的所有属性和方法  都会被构造函数的实例继承 我们可以把不变的属性和方法直接定义    在prototype对象属性上</p>
+<p>prototype就是调用构造函数所创建的实例对象的原型</p>
+<p>prototype可以让所有对象实例共享他所包含的属性和方法 不必在构造函数中定义对象信息 可以直接将这些信息添加到原型中</p>
+<p>原型链：</p>
+<p>实例对象与原型之间的连接 叫做原型链 proto<br>    原型对象也可能拥有原型 从中集成方法和属性 一层一层 依次类推 这种关系被称为原型链 它解释了为何一个对象会拥有定义在其他对象中的属性和方法</p>
+<p>在对象实例和它的构造器之间建立一个链接(它是__proto__属性，是从构造函数的prototype属性派生的),之后通过上溯原型链 在构造器中找到这些属性和方法</p>
+<p>一切对象都是继承自object对象 object对象直接继承根源对象null</p>
+<p>一切的函数对象(包括object对象) 都是继承自Function对象</p>
+<p>Object对象直接继承自Function对象</p>
+<p>Function对象的__proto__会指向自己的原型对象 最终还是继承自object对象</p>
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何通过JS判断一个数组</title>
+    <url>/2018/12/27/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87JS%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<h2 id="如何通过JS判断一个数组"><a href="#如何通过JS判断一个数组" class="headerlink" title="如何通过JS判断一个数组"></a>如何通过JS判断一个数组</h2><p>通过原型链判断：<br>        <strong>proto</strong> 实例的__proto__属性指向其构造函数的原型对象</p>
+<p>const arr = [1,2,3]</p>
+<p>arr.<strong>proto</strong> === Array.prototype</p>
+<p>constructor 实例的constructor属性指向构造函数本身</p>
+<p>arr.constructor ===Array</p>
+<p>instanceOf 可以判断Array是否是实例的构造函数</p>
+<p>arr instanceof Array</p>
+<p>isPrototypeOf() 判断Array原型对象是否为在某个对象的原型链上</p>
+<p>Array.prototype.isPrototypeOf(arr)</p>
+<p>通过Object原型上的方法判断 </p>
+<p>Array.isArray() es6用于判断数组类型的方法</p>
+<p>Array.isArray(arr)</p>
+<p>Object.prototype.toString 被所有对象继承 返回[Object type]字符串</p>
+<p>Object.prototype.toString.call(arr)  </p>
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>对作用域链的理解</title>
+    <url>/2018/11/16/%E5%AF%B9%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%E7%9A%84%E7%90%86%E8%A7%A3/</url>
+    <content><![CDATA[<h2 id="对作用域链的理解"><a href="#对作用域链的理解" class="headerlink" title="对作用域链的理解"></a>对作用域链的理解</h2><p>作用域：</p>
+<p>即变量(变量作用域又称上下文)和函数生效的区域或集合</p>
+<p>作用域决定了代码区块中变量和其他资源的可见性</p>
+<p>在全局中无法获取到(闭包除外)函数内部的变量</p>
+<p>一般将作用域分为：</p>
+<p>全局作用域</p>
+<p>任何不在函数中或者是大括号中声明的变量 都是在全局作用域下 全局    作用域下声明的变量可以在程序的任意位置访问</p>
+<p>函数作用域</p>
+<p>函数作用域也叫局部作用域 如果一个变量是在函数内部声明的它就在一    个函数作用域下面 这些变量只能在函数内部访问 不能再函数以外访问</p>
+<p>块级作用域</p>
+<p>ES6引入了let和const关键字 和var关键字不同 在大括号中使用let和    const声明的变量存在于块级作用域中 在大括号之外不能访问这些变量</p>
+<p>词法作用域：<br>        又叫静态作用域 变量被创建时就确定好了 而非执行阶段确定 js遵循的就是词法        作用域</p>
+<p>作用域链：<br>        当在js中使用一个变量的时候 首先js引擎会尝试在当前作用域下寻找该变量 如        果没找到 再到他的上层作用域寻找 以此类推直到找到该变量或已到了全局作用        域 如果在全局作用域仍找不到该变量 它就会在全局范围内隐式声明该变量或直        接报错</p>
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>防抖和节流</title>
+    <url>/2018/12/15/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/</url>
+    <content><![CDATA[<h2 id="防抖和节流"><a href="#防抖和节流" class="headerlink" title="防抖和节流"></a>防抖和节流</h2><p>本质上是优化高频率执行代码的手段</p>
+<p>如：浏览器的resize scroll keypress mousemove等事件触发时 不断地调用绑定在事件上    的回调函数 极大地浪费资源 降低前端性能</p>
+<p>为了优化体验 需要对这类事件进行调用次数的限制 我们可以采用防抖节流方式减少    调用频率</p>
+<p>节流：n秒内只执行一次 若在n秒内重复触发 只有一次生效</p>
+<p>防抖：n秒后在执行该事件 若在n秒内被重复触发 重新计时</p>
+<p>区别：<br>        相同点：</p>
+<p>都可以通过使用setTimeout实现</p>
+<p>目的都是 降低回调执行频率 节省计算资源</p>
+<p>不同点：</p>
+<p>函数防抖 在一段连续操作结束后处理回调 利用clearTimeout和settimeout实    现 </p>
+<p>函数节流 在一段连续操作中 每一段时间只执行一次 频率较高的事件中使用    来提高性能</p>
+<p>防抖关注一定时间连续触发的事件 只在最后执行一次 节流一段时间内只执    行一次</p>
+<p>应用场景：</p>
+<p>防抖在连续的事件  只需触发一下次回调的场景：</p>
+<p>搜索框搜索输入 只需用户最后一次输入完 在发送请求</p>
+<p>手机号邮箱验证输入检测</p>
+<p>窗口大小resize 只需窗口调整完成后 计算窗口大小 防止重复渲染</p>
+<p>节流在间隔一段时间执行一次回调的场景：</p>
+<p>滚动加载 加载更多或滚到底部监听</p>
+<p>搜索框 搜索联想功能</p>
 ]]></content>
       <categories>
         <category>JS</category>

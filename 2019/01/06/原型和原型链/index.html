@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>原型和原型链 - null</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="原型和原型链原型：
+js规定 每个对象都有一个prototype对象属性 指向另一个对象 prototype的所有属性和方法  都会被构造函数的实例继承 我们可以把不变的属性和方法直接定义    在,"> 
+    <meta name="author" content="Mikor"> 
+    <link rel="alternative" href="atom.xml" title="" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="原型和原型链 - null"/>
+    <meta name="twitter:description" content="原型和原型链原型：
+js规定 每个对象都有一个prototype对象属性 指向另一个对象 prototype的所有属性和方法  都会被构造函数的实例继承 我们可以把不变的属性和方法直接定义    在,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content=""/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="原型和原型链 - null"/>
+    <meta property="og:description" content="原型和原型链原型：
+js规定 每个对象都有一个prototype对象属性 指向另一个对象 prototype的所有属性和方法  都会被构造函数的实例继承 我们可以把不变的属性和方法直接定义    在,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none"></span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">原型和原型链</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">原型和原型链</h1>
+        <div class="stuff">
+            <span>一月 06, 2019</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/JS/" rel="tag">JS</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h2><p>原型：</p>
+<p>js规定 每个对象都有一个prototype对象属性 指向另一个对象 prototype的所有属性和方法  都会被构造函数的实例继承 我们可以把不变的属性和方法直接定义    在prototype对象属性上</p>
+<p>prototype就是调用构造函数所创建的实例对象的原型</p>
+<p>prototype可以让所有对象实例共享他所包含的属性和方法 不必在构造函数中定义对象信息 可以直接将这些信息添加到原型中</p>
+<p>原型链：</p>
+<p>实例对象与原型之间的连接 叫做原型链 proto<br>    原型对象也可能拥有原型 从中集成方法和属性 一层一层 依次类推 这种关系被称为原型链 它解释了为何一个对象会拥有定义在其他对象中的属性和方法</p>
+<p>在对象实例和它的构造器之间建立一个链接(它是__proto__属性，是从构造函数的prototype属性派生的),之后通过上溯原型链 在构造器中找到这些属性和方法</p>
+<p>一切对象都是继承自object对象 object对象直接继承根源对象null</p>
+<p>一切的函数对象(包括object对象) 都是继承自Function对象</p>
+<p>Object对象直接继承自Function对象</p>
+<p>Function对象的__proto__会指向自己的原型对象 最终还是继承自object对象</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="https://m701.music.126.net/20221005153002/d381e2df5e80cf533212be8083a72d64/jdyyaac/obj/w5rDlsOJwrLDjj7CmsOj/15854242719/fcdb/876e/8611/81cc4933910b92ad658c9c367fefaa76.m4a"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="https://m701.music.126.net/20221005153224/5598792c0f2a2c85d5de595567e44b9a/jdyyaac/obj/w5rDlsOJwrLDjj7CmsOj/15532518523/41fa/8c74/b7c2/ff122551a20b5d77073d5a90e7b4e8ec.m4a"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
