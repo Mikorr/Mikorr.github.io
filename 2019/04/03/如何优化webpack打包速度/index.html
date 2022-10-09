@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>如何优化webpack打包速度 - null</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="webpack打包优化分为两部分 一部分是大小优化 另一部分是速度优化
+大小优化：
+CommonsChunk
+前端构建项目中 为了提高打包效率 往往将第三库与业务逻辑代码分开打包，因为第三方库往往不,"> 
+    <meta name="author" content="Mikor"> 
+    <link rel="alternative" href="atom.xml" title="" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="如何优化webpack打包速度 - null"/>
+    <meta name="twitter:description" content="webpack打包优化分为两部分 一部分是大小优化 另一部分是速度优化
+大小优化：
+CommonsChunk
+前端构建项目中 为了提高打包效率 往往将第三库与业务逻辑代码分开打包，因为第三方库往往不,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content=""/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="如何优化webpack打包速度 - null"/>
+    <meta property="og:description" content="webpack打包优化分为两部分 一部分是大小优化 另一部分是速度优化
+大小优化：
+CommonsChunk
+前端构建项目中 为了提高打包效率 往往将第三库与业务逻辑代码分开打包，因为第三方库往往不,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none"></span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">如何优化webpack打包速度</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">如何优化webpack打包速度</h1>
+        <div class="stuff">
+            <span>四月 03, 2019</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/webpack/" rel="tag">webpack</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>webpack打包优化分为两部分 一部分是大小优化 另一部分是速度优化</p>
+<p>大小优化：</p>
+<p>CommonsChunk</p>
+<p>前端构建项目中 为了提高打包效率 往往将第三库与业务逻辑代码分开打包，因为第三方库往往不需要经常打包更新 webpack建议使用CommonsChunk单    独打包第三方库</p>
+<p>CommonsChunk虽然可以减少包的大小 但存在问题是 即使代码不更新 每次重新打包 vendor都会重新生成 不符合我们分离第三方包的初衷</p>
+<p>Externals</p>
+<p>相比于CommonsChunk webpack提供Externals的方法 可以通过外部引用的方法 引入第三方库</p>
+<p>DLL &amp; DllReference</p>
+<p>相比于前者 通过前置这些依赖包的构建 来提高真正的build和rebuild构建效率 也就是说只要第三方库没有变化 之后每次build都只需要去打包自己的业    务代码 解决Externals多次引用问题 webpack通过webpack.DllPlugin与    webpack.DllReferencePlugin两个内嵌插件实现此功能</p>
+<p>webpack.DllPlugin选项:<br>        path:manifest.json文件输出路径 这个文件会用于后续业务代码打包</p>
+<p>name:dll暴露的对象名 要跟output.library保持一致</p>
+<p>context:解析包路径的上下文 这个要跟接下来配置的webpack.config.js一致</p>
+<p>webpack.DllReferencePlugin选项中:</p>
+<p>context:需要跟之前保持一致 这个用来知道webpack匹配manifest.json中库的路径</p>
+<p>manifest:用来引入刚才输出的manifest.json文件</p>
+<p>速度优化：</p>
+<p>优化loader配置</p>
+<p>1.缩小文件匹配范围(include/exclude)</p>
+<p>通过排除node_modules下的文件 从而缩小了loader加载搜索范围 高概率命中文件</p>
+<p>2.缓存loader执行结果(cacheDirectory)</p>
+<p>cacheDirectory是loader的一个特性的选项 默认值是false 指定的目录将用来缓存loader的执行结果 减少webpack构建时Babel重新编译过程 如果设置一个空值或true 将使用默认的缓存目录 如果在任何根目录下都    没有找到node_modules目录 将会降级回退到操作系统默认的临时文件目录</p>
+<p>resolve优化配置</p>
+<p>1.优化模块查找路径 resolve.modules</p>
+<p>webpack的resolve.modules配置模块库所在的位置 在js里出现import ‘vue’这样不是相对 也不是绝对路径的写法时 回去node_modules目录下    找 但是默认的配置 会采用向上递归搜索的方式去寻找 但通常项目目录    里只有一个node_modules 且是在项目根目录 为了减少搜索范围 可以    直接写明node_modules的全路径 同样 对于别名的配置 亦当如此    </p>
+<p>2.resolve.alias 配置路径别名</p>
+<p>创建import或require的路径别名 来确保模块引入变得更简单 配置项通过别名来把原导入路径映射成一个新的导入路径 此优化方法会影响使用    Tree-Shaking去除无效代码</p>
+<p>3.resolve.extensions</p>
+<p>当引入模块时不带文件后缀webpack会根据此配置自动解析确定的文件后缀</p>
+<p>后缀列表尽可能小</p>
+<p>频率最高的往前放</p>
+<p>导出语句尽可能带上后缀</p>
+<p>module.noParse</p>
+<p>用了noParse的模块将不会被loaders解析 所以当我们使用的库如果太大 并且其中不包含import require.define的调用 我们就可以使用这项配置来提升性    能 让webpack忽略对部分没采用模块化的文件的递归解析处理</p>
+<p>HappyPack</p>
+<p>HappyPa    ck是让webpack对loader的执行过程 从单一进程形式扩展为多进程模式 也就是将任务分解给多个子进程去并发的执行 子进程处理完后再把结    果发送给主进程 从而加速代码构建 与DLL动态链接库结合来使用更佳</p>
+<p>happypack提供的loader 是对文件实际匹配的处理loader 这里happypack提供的loader与plugin衔接匹配 则是通过id=happypack来完成</p>
+<p>ParallelUglifyPlugin</p>
+<p>这个插件可以帮助有很多入口点的项目加快构建速度 把对js文件的串行压缩变为开启多个子进程并行进行uglify</p>
+<p>Tree Shaking</p>
+<p>提出js中用不上的代码 依赖静态的es6模块化语法 例如通过import和export导入导出</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="https://m701.music.126.net/20221005153002/d381e2df5e80cf533212be8083a72d64/jdyyaac/obj/w5rDlsOJwrLDjj7CmsOj/15854242719/fcdb/876e/8611/81cc4933910b92ad658c9c367fefaa76.m4a"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="https://m701.music.126.net/20221005153224/5598792c0f2a2c85d5de595567e44b9a/jdyyaac/obj/w5rDlsOJwrLDjj7CmsOj/15532518523/41fa/8c74/b7c2/ff122551a20b5d77073d5a90e7b4e8ec.m4a"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
