@@ -1074,8 +1074,101 @@
   </entry>
   <entry>
     <title>webpack中常见的Plugin</title>
-    <url>/2022/10/10/webpack%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%9A%84Plugin/</url>
-    <content><![CDATA[]]></content>
+    <url>/2019/04/06/webpack%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%9A%84Plugin/</url>
+    <content><![CDATA[<h2 id="webpack中常见的Plugin"><a href="#webpack中常见的Plugin" class="headerlink" title="webpack中常见的Plugin"></a>webpack中常见的Plugin</h2><p>Plugin是一种计算机应用程序 它和主应用程序互相交互 以提供特定的功能</p>
+<p>是一种遵循一堆规范的应用程序接口编写出来的程序 只能运行在程序规定的系统下 因为其需要调用原纯净系统提供的函数库或数据</p>
+<p>webpack中的plugin也是如此 plugin赋予其各种灵活的功能 例如打包优化 资源管理 环境变量注入等 它们会运行在webpack的不同阶段(钩子/生命周期) 贯穿了webpack整个编译周期</p>
+<p>目的在于解决loader无法实现的其他功能</p>
+<p>特性：</p>
+<p>其本质是一个具有apply方法的js对象</p>
+<p>apply方法会被webpack compiler调用 并且在整个编译生命周期都可以访问compiler对象</p>
+<p>常用plugin<br>html-webpack-plugin<br>uglifyjs-webpack-plugin<br>mini-css-extract-plugin<br>optimize-css-assets-webpack-plugin</p>
+<p>1.html-webpack-plugin<br>    html-webpack-plugin在官方文档中的解释是<br>    简化了 HTML 文件的创建，以便为你的 webpack 包提供服务。这对于那些文件名中包含哈希值，并且哈希值会    随着每次编译而改变的 webpack 包特别有用。你可以让该插件为你生成一个 HTML 文件，使用 lodash 模板提    供模板，或者使用你自己的 loader。<br>    我来解释一下这段话,用通俗的话来说,就是这个plugin是为了生成html文件的,而且会自动引入所依赖的打包好的    js代码,这些js代码在生成哈希值为了避免缓存的同时造成的问题就是html内的引入变得不再方便,因为没有规则    匹配来引入的话,那每次可能打包好的js都需要我们去手动引入,那么这个plugin就是为了解决这个问题的,引入所    需要的代码的意思就是不再会因为哈希值的改变而做另外的事情,plugin会帮我们找到这些js且帮我们引入到        html    </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">HtmlWebpackPlugin</span> = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">entry</span>: <span class="string">&#x27;index.js&#x27;</span>,</span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="attr">path</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;./dist&#x27;</span>),</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;index_bundle.js&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [<span class="keyword">new</span> <span class="title class_">HtmlWebpackPlugin</span>()],</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>由以上代码我们可以看到,其实这个plugin是一个不需要配置就能完成所做的事情的插件,生成的结果就是根据出口自动生成一个index.html文件,然后子啊index.html中去引入我们打包好的js文件</p>
+<p>有的人肯定要想了,那我万一再html中写了代码,那我怎么办,我html中的代码这不是就被废弃掉了吗,其实不是的,我们的html可以当作模板传进去,这样生成的html就会以我们传入的html为模板去插入去生成我们所需的html,我们下边来说一下可配置的参数</p>
+<p>1.title<br>用来生成页面的 title 元素,如果在页面中有title的话,可以忽略这个配置</p>
+<p>2.filename<br>输出的 HTML 文件名，不配置的话默认就是./index.html,配置的话可以配置目录,比如./app/index.html,这样就会在dist文件夹下创建一个app文件夹,然后在app文件夹下输出我们的html</p>
+<p>3.template<br>重点来了,这个就是上边说的配模板文件的路径，我们可以配置我们输出的时候想要的模板路径,从而生成我们定制的模板,我看了一下这个的说明,可以配置很多种类的模板.字符串也可以,非常通用</p>
+<p>4.inject<br>这个配置项是选配的,可以选择四个值分别是true | ‘head’ | ‘body’ | false,true是属于默认值，script标签位于html文件的body底部, body与true一致,我其实也没理解意义是啥,head是说明script标签位于html文件的head中,false是不插入生成的js文件,这个唯一用到的就是我们要生成一个单纯的html文件,业务场景暂时没发现</p>
+<p>5.favicon<br>指定我们生成的html的icon</p>
+<p>6.minify<br>这个参数实际上是html-minifier是否应用,是用来压缩的,如果不用就是false,如果用的话就传递html-minifier的参数,caseSensitive|collapseWhitespace|removeAttributeQuotes|removeComments这四个的作用就是:大小写是否敏感,去空格,去属性引用,去注释</p>
+<p>7.hash<br>是否生成hash添加在引入文件地址的末尾，这个可以避免缓存带来的麻烦。默认为true。</p>
+<p>8.cache<br>默认值是true,代表只在文件被更改时才会发出新的文件,配置为false的话会每次打包都生成新的文件,导致浪费</p>
+<p>9.showErrors<br>是否在html里添加错误的信息,如果选择true,那就会把错误信息生成一个pre插入到html中</p>
+<p>10.chunks<br>用来配置哪些模块是可以插入html中的,可以选择性的插入自己要插入的js,比如入口文件有三个但是我当前html只需要两个那就可以插入两个</p>
+<p>11.chunksSortMode<br>跳过某些不插入,这个我好像用的也不多,因为这俩是冲突的好像,记得报错过一次,就是选择插入和选择剔除是冲突的</p>
+<p>非常常用的一个插件,在我的观念里这个应该是避不开的,因为你总需要解决缓存问题.总要自动引入打包的js,如果我们写的是多页面的话,那我们就需要重复使用这个插件,来做到自己的html插入自己的js打包文件,从而达到多页各自不冲突的效果</p>
+<p>2.uglifyjs-webpack-plugin<br>uglifyjs-webpack-plugin插件用来缩小（压缩优化）js文件，最低使用版本为:Node v6.9.0/Webpack v4.0.0,一般我们现在的项目都是可以不用操心这个的,毕竟这俩兼容版本已经很低了<br>这里需要先说一个东西,就是optimization,这个也是webpack的一个配置,作用就是优化,默认的话是uglifyjs-webpack-plugin(webpack自己的)来压缩打包,但是这个我们是可以配置的,用不同的压缩插件来进行自定义,minimizer就是配置我们自定义插件的地方,默认为true</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">HtmlWebpackPlugin</span> = <span class="built_in">require</span>(<span class="string">&#x27;uglifyjs-webpack-plugin&#x27;</span>);</span><br><span class="line"><span class="attr">optimization</span>: &#123;</span><br><span class="line">	<span class="attr">minimizer</span>: [</span><br><span class="line">		<span class="keyword">new</span> <span class="title class_">UglifyJsPlugin</span>()</span><br><span class="line">	]</span><br><span class="line">&#125;,</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这就是我们使用当前插件时候的默认配置,就可以修改为我们当前的插件来进行js的压缩,当然了也有很多的配置参数,我们来看一下</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">UglifyJsPlugin</span>(&#123;</span><br><span class="line">	<span class="attr">test</span>: <span class="regexp">/\.js(\?.*)?$/i</span>,  <span class="comment">//选中匹配规则文件,</span></span><br><span class="line">	<span class="attr">include</span>: <span class="regexp">/\/includes/</span>, <span class="comment">//包含哪些文件</span></span><br><span class="line">	<span class="attr">excluce</span>: <span class="regexp">/\/excludes/</span>, <span class="comment">//不包含哪些文件</span></span><br><span class="line">	<span class="comment">//看到filter我们就知道了吧这是个过滤器,用来过滤哪些压缩和不压缩的,返回true的是压缩的,返回false不压缩</span></span><br><span class="line">	<span class="attr">chunkFilter</span>: <span class="function">(<span class="params">chunk</span>) =&gt;</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> (chunk.<span class="property">name</span> === <span class="string">&#x27;天选之子&#x27;</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"> 	&#125;,</span><br><span class="line"> 	<span class="attr">cache</span>:<span class="literal">true</span>,<span class="comment">//是否缓存,可以写string模式的,来确定缓存路径</span></span><br><span class="line"> 	<span class="attr">parallel</span>:<span class="literal">true</span>,<span class="comment">//是否启动多线程提高构建速度,也可以写数字来确定几个线程,建议不用,一般来说没那么复杂用的话反而效果不好</span></span><br><span class="line"> 	<span class="attr">uglifyOptions</span>:&#123;&#125;<span class="comment">//这个可以写很多的具体压缩规则配置,因为默认用的是uglify-js,所以参数较多我下边列一下</span></span><br><span class="line"> &#125;),</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>实话实说我建议用默认的就好,当然了解一下肯定是好的,比如混淆就是替换名称<br>可以直接看<a href="https://www.npmjs.com/package/uglify-js">uglify-js文档</a></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//parse 解释</span></span><br><span class="line"><span class="comment">//compress 压缩</span></span><br><span class="line"><span class="comment">//mangle 混淆</span></span><br><span class="line"><span class="comment">//beautify 美化</span></span><br><span class="line"><span class="comment">//minify 最小化</span></span><br><span class="line"><span class="comment">//CLI 命令行工具</span></span><br><span class="line"><span class="comment">//sourcemap 编译后代码对源码的映射，用于网页调试</span></span><br><span class="line"><span class="comment">//AST 抽象语法树</span></span><br><span class="line"><span class="comment">//name 名字，包括变量名、函数名、属性名</span></span><br><span class="line"><span class="comment">//toplevel 顶层作用域</span></span><br><span class="line"><span class="comment">//unreachable 不可达代码</span></span><br><span class="line"><span class="comment">//option 选项</span></span><br><span class="line"><span class="comment">//STDIN 标准输入，指在命令行中直接输入</span></span><br><span class="line"><span class="comment">//STDOUT 标准输出</span></span><br><span class="line"><span class="comment">//STDERR 标准错误输出</span></span><br><span class="line"><span class="comment">//side effects函数副作用，即函数除了返回外还产生别的作用，比如改了全局变量</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这个也是一个非常常用的插件,几乎可以算是做首选,因为官方文档上说的就是可以拿这个来自定义压缩,另外一个题外话就是optimization其实也有很多的参数可配置,在压缩文件的时候肯定是可以配置不同来选择自定义压缩方式的,可以看一下一个老大哥解释的很详细的optimization的帖子</p>
+<p>3.mini-css-extract-plugin<br>我们前边已经梳理过了,在使用webpack构建工具的时候，通过style-loader，可以把解析出来的css通过js插入内部样式表的方式到页面中,我们如果不想这样做的话该怎么办,我们要做的是吧css都提出来,放在css文件中,这个然后用过我们第一个讲的html-webpack-plugin就可以默认引入我们随意变化哈希值的css文件</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">optimization</span>: &#123;</span><br><span class="line">    <span class="attr">minimizer</span>: [</span><br><span class="line">      <span class="keyword">new</span> <span class="title class_">OptimizeCSSAssetsPlugin</span>(&#123;&#125;)</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">MiniCssExtractPlugin</span>(&#123;</span><br><span class="line">      <span class="attr">filename</span>: <span class="string">&quot;[name].css&quot;</span>,</span><br><span class="line">      <span class="attr">chunkFilename</span>: <span class="string">&quot;[id].css&quot;</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        <span class="attr">use</span>: [</span><br><span class="line">          <span class="title class_">MiniCssExtractPlugin</span>.<span class="property">loader</span>,</span><br><span class="line">          <span class="string">&quot;css-loader&quot;</span></span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>看以上代码我们可以看出来,这个插件,算得上是简单好用,我们在做的事只是把style-loader换成MiniCssExtractPlugin.loader,我们用插件中的loader就可以取代style-loader的作用且打包的时候打包到css文件中,配置到minimizer中,说明我们这个也是可以用来做优化使用的,一般情况下我们会用const devMode = process.env.NODE_ENV !== ‘production’来拿到我们的当前环境,然后来判断是不是开发环境,如果是的话我们就会使用这个loder,如果不是的话我们可以使用style-loader</p>
+<h5 id="4-optimize-css-assets-webpack-plugin"><a href="#4-optimize-css-assets-webpack-plugin" class="headerlink" title="4.optimize-css-assets-webpack-plugin"></a>4.optimize-css-assets-webpack-plugin</h5><ul>
+<li><p>这个从名称上实际上可以看出端倪,这个就是一个用于优化css资源的插件。</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">默认值</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">assetNameRegExp(可选)</td>
+<td align="center">RegExp</td>
+<td align="center">/.css$/g</td>
+<td align="center">此插件压缩的对象是由<code>mini-css-extract-plugin</code>插件输出的css文件,而不是css源文件</td>
+</tr>
+<tr>
+<td align="center">cssProcessor(可选)</td>
+<td align="center">Function</td>
+<td align="center"><a href="https://links.jianshu.com/go?to=https://github.com/cssnano/cssnano">cssnano</a></td>
+<td align="center">压缩css的处理器,一个<code>函数</code>,接收<code>CSS模块和options参数</code>并返回一个<code>promise对象</code></td>
+</tr>
+<tr>
+<td align="center">cssProcessorOptions(可选)</td>
+<td align="center">Object</td>
+<td align="center">{}</td>
+<td align="center">传递给cssProcessor的配置对象</td>
+</tr>
+<tr>
+<td align="center">cssProcessorPluginOptions(可选)</td>
+<td align="center">Object</td>
+<td align="center">{}</td>
+<td align="center">传递给cssProcessor的插件配置对象</td>
+</tr>
+<tr>
+<td align="center">canPrint(可选)</td>
+<td align="center">Boolean</td>
+<td align="center">true</td>
+<td align="center">配置插件是否可以将消息打印到控制台</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">module</span>: &#123;</span><br><span class="line">	<span class="attr">rules</span>: [</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</span><br><span class="line">			<span class="attr">loader</span>: <span class="title class_">ExtractTextPlugin</span>.<span class="title function_">extract</span>(<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>)</span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;,</span><br><span class="line"><span class="attr">plugins</span>: [</span><br><span class="line">	<span class="keyword">new</span> <span class="title class_">ExtractTextPlugin</span>(<span class="string">&#x27;styles.css&#x27;</span>),</span><br><span class="line">	<span class="keyword">new</span> <span class="title class_">OptimizeCssAssetsPlugin</span>(&#123;</span><br><span class="line">		<span class="attr">assetNameRegExp</span>: <span class="regexp">/\.optimize\.css$/g</span>,</span><br><span class="line">		<span class="attr">cssProcessor</span>: <span class="built_in">require</span>(<span class="string">&#x27;cssnano&#x27;</span>),<span class="comment">//引入cssnano配置参数</span></span><br><span class="line">		<span class="attr">cssProcessorPluginOptions</span>: &#123;</span><br><span class="line">			<span class="attr">preset</span>: [<span class="string">&#x27;default&#x27;</span>, &#123; <span class="attr">discardComments</span>: &#123; <span class="attr">removeAll</span>: <span class="literal">true</span> &#125; &#125;],</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="attr">canPrint</span>: <span class="literal">true</span></span><br><span class="line">	&#125;)</span><br><span class="line">]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>我们可以看出来这个插件的使用方式与其他插件使用方式有所不同,我们需要传入我们前边所需要的插件,这样插件会生成我们需要的压缩css的loader,来进行css的压缩,且我们下边配置的ipction我们也都可以通过上边的参数表来对应查看,进行不同的配置,就不再一个个说明了</p>
+<p>总结:今天我们就简单说这四个,都很常用,其实常用的plugin有很多,且比loader配置要多很多的可能性,因为插件本来就比loader作用更加的广泛,所以很难一次性的梳理很多,慢慢来,等plugin梳理完毕我们自己搭建一个满足我们所需功能的webpack打包,用来总结一下</p>
+]]></content>
+      <categories>
+        <category>webpack</category>
+      </categories>
+      <tags>
+        <tag>webpack</tag>
+      </tags>
   </entry>
   <entry>
     <title>严格模式是什么意思</title>
