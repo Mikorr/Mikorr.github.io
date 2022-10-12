@@ -1384,4 +1384,79 @@
         <tag>JS</tag>
       </tags>
   </entry>
+  <entry>
+    <title>CSS3新特征</title>
+    <url>/2018/10/15/CSS3%E6%96%B0%E7%89%B9%E5%BE%81/</url>
+    <content><![CDATA[<p>圆角（border-radius）<br>阴影（box-shadow）<br>文字特效(text-shadow)<br>线性渐变（gradient）<br>变换(transform)<br>更多的CSS选择器<br>更多背景设置（background）<br>色彩模式（rgba）<br>伪元素（::selection）<br>媒体查询（@media）<br>多栏布局（column）<br>图片边框（border-image）</p>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>伪类和伪元素的区别</title>
+    <url>/2018/10/21/%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<h2 id="伪类和伪元素的区别"><a href="#伪类和伪元素的区别" class="headerlink" title="伪类和伪元素的区别"></a>伪类和伪元素的区别</h2><pre><code>### 伪类：
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/cb244f221003440ea81110e61684c696.png" alt="图片"></p>
+<h3 id="伪元素："><a href="#伪元素：" class="headerlink" title="伪元素："></a>伪元素：</h3><p><img src="https://img-blog.csdnimg.cn/0905ecc76f554ccca9ab57dc6412c854.png" alt="图片"></p>
+<p><strong>区别</strong></p>
+<ul>
+<li>伪类只能使用“<strong>：</strong>”，伪元素既可以使用“:”，也可以使用“::”</li>
+<li>伪元素其实相当于伪造了一个元素，伪类没有伪造元素，例如first-child只是给子元素添加样式而已。（本质区别就是<strong>是否抽象创造了新元素</strong>）</li>
+</ul>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cookie与sessionStorage和localStorage的区别</title>
+    <url>/2019/01/11/cookie%E4%B8%8EsessionStorage%E5%92%8ClocalStorage%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<h2 id="cookie与sessionStorage和localStorage的区别"><a href="#cookie与sessionStorage和localStorage的区别" class="headerlink" title="cookie与sessionStorage和localStorage的区别"></a>cookie与sessionStorage和<a href="https://so.csdn.net/so/search?q=localStorage&spm=1001.2101.3001.7020">localStorage</a>的区别</h2><p>保存方式<br>cookie存放在客户的浏览器上。<br>session都在客户端中保存，不参与服务器通讯。</p>
+<p>生命周期<br>cookie可设置失效时间<br>localStorage除非手动清除否则永久保存<br>sessionStorage关闭当前页面或浏览器后失效</p>
+<p>存储的大小<br>cookie 4kb左右<br>session 5M</p>
+<p>易用性<br>cookie需自己封装<br>session可以接受原生接口</p>
+<p>因为cookie每次请求都会携带在http请求中,所以它的主要用来识别用户登录,localStorage可以用来跨页面传参,sessionStorage可以用来保留一些临时数据。</p>
+<p>关于storage使用的方式可以查看storage传值</p>
+]]></content>
+      <categories>
+        <category>HTML</category>
+      </categories>
+      <tags>
+        <tag>HTML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>css怎么清除浮动</title>
+    <url>/2018/10/11/css%E6%80%8E%E4%B9%88%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/</url>
+    <content><![CDATA[<h2 id="css怎么清除浮动"><a href="#css怎么清除浮动" class="headerlink" title="css怎么清除浮动"></a>css怎么清除浮动</h2><p>父级div定义overflow:hidden（如果父级元素有定位元素超出父级，超出部分会隐藏，）<br>给浮动元素父级增加标签（由于新增标签会造成不必要的渲染，不建议使用）<br>伪元素清除浮动：给浮动元素父级增加 .clearfix::after（content: ‘’; display: table; clear: both;）（不会新增标签，不会有其他影响，）</p>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>重绘和重排是什么？如何避免？</title>
+    <url>/2018/09/11/%E9%87%8D%E7%BB%98%E5%92%8C%E9%87%8D%E6%8E%92%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%EF%BC%9F/</url>
+    <content><![CDATA[<h2 id="重绘和重排是什么？如何避免？"><a href="#重绘和重排是什么？如何避免？" class="headerlink" title="重绘和重排是什么？如何避免？"></a>重绘和重排是什么？如何避免？</h2><p>重排：当DOM的变化影响了元素的几何信息(元素的的位置和尺寸大小)，浏览器需要重新计算元素的几何属性，将其安放在界面中的正确位置，这个过程叫做重排。<br>重绘：当一个元素的外观发生改变，但没有改变布局，重新把元素外观绘制出来的过程，所以重绘跳过了创建布局树和分层的阶段。</p>
+<p>重排需要重新计算布局树，重绘不需要，重排必定发生重绘，但是涉及到重绘不一定要重排 。涉及到重排对性能的消耗更多一些。</p>
+<p>触发重排的方法： 页面初始渲染、添加/删除可见的DOM元素、改变元素位置、改变元素尺寸、改变元素内容、改变元素字体大小、改变浏览器窗口尺寸、设置 style 属性的值等。<br>避免重排的方式：样式集中改变、使用 absolute 或 fixed 脱离文档流。</p>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
 </search>
