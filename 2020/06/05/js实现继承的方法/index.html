@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>js实现继承的方法 - null</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="js实现继承的方法1.原型链继承
+1Child.prototype = new Parent()
+
+​    该方法与属性集中可复用的部分迁移到原型链中 而将不可复用的部分设置为对象自身的属性
+2.,"> 
+    <meta name="author" content="Mikor"> 
+    <link rel="alternative" href="atom.xml" title="" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="js实现继承的方法 - null"/>
+    <meta name="twitter:description" content="js实现继承的方法1.原型链继承
+1Child.prototype = new Parent()
+
+​    该方法与属性集中可复用的部分迁移到原型链中 而将不可复用的部分设置为对象自身的属性
+2.,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content=""/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="js实现继承的方法 - null"/>
+    <meta property="og:description" content="js实现继承的方法1.原型链继承
+1Child.prototype = new Parent()
+
+​    该方法与属性集中可复用的部分迁移到原型链中 而将不可复用的部分设置为对象自身的属性
+2.,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none"></span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">js实现继承的方法</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">js实现继承的方法</h1>
+        <div class="stuff">
+            <span>六月 05, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/JS/" rel="tag">JS</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="js实现继承的方法"><a href="#js实现继承的方法" class="headerlink" title="js实现继承的方法"></a>js实现继承的方法</h2><p>1.原型链继承</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Child</span>.<span class="property"><span class="keyword">prototype</span></span> = <span class="keyword">new</span> <span class="title class_">Parent</span>()</span><br></pre></td></tr></table></figure>
+
+<p>​    该方法与属性集中可复用的部分迁移到原型链中 而将不可复用的部分设置为对象自身的属性</p>
+<p>2.仅从原型继承</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Child</span>.<span class="property"><span class="keyword">prototype</span></span>=  <span class="title class_">Parent</span>.<span class="property"><span class="keyword">prototype</span></span></span><br></pre></td></tr></table></figure>
+
+<p>​    不存在原型链 所有的对象共享一个原型对象</p>
+<p>​    优点：<br>​        1.由于该模式在构建继承关系时不需要新建对象实例 效率上会有较好的表现</p>
+<p>​        2.原型链上的查询也会比较快 因为这里根本不存在链</p>
+<p>​    缺点：</p>
+<p>​        对子对象的修改会影响父对象</p>
+<p> 3.临时构造器</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">extend</span>(<span class="params">Child, Parent</span>) &#123;</span><br><span class="line">       <span class="keyword">var</span> A = <span class="keyword">function</span>(<span class="params"></span>)&#123;&#125;;</span><br><span class="line">       A.<span class="property"><span class="keyword">prototype</span></span> = <span class="title class_">Parent</span>. prototype;</span><br><span class="line">    <span class="title class_">Child</span>.<span class="property"><span class="keyword">prototype</span></span> = <span class="keyword">new</span> <span class="title function_">A</span>();</span><br><span class="line">    <span class="title class_">Child</span>.<span class="property"><span class="keyword">prototype</span></span>. constructor = <span class="title class_">Child</span>;</span><br><span class="line">    <span class="title class_">Child</span>.<span class="property">uber</span> = <span class="title class_">Parent</span>. prototype;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    只继承父对象的原型属性 而对于其自身属性则不予继承</p>
+<p>​    可以通过uber属性便捷访问父对象</p>
+<p> 4.原型属性复制</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">extend</span>(<span class="params">Child, Parent</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> p = <span class="title class_">Parent</span>. prototype;</span><br><span class="line">    <span class="keyword">var</span> c = <span class="title class_">Child</span>. <span class="title class_">Prototype</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> p) &#123;</span><br><span class="line">       c[i] = p[i];</span><br><span class="line">    &#125;     </span><br><span class="line">    c.<span class="property">uber</span> = p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 5.浅复制</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">extendCopy</span>(<span class="params">p</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> c = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> p) &#123;</span><br><span class="line">       c[i] = p[i];</span><br><span class="line">    &#125;</span><br><span class="line">    c.<span class="property">uber</span> = p;</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    非常简单  没有使用原型属性</p>
+<p> 6.深复刻</p>
+<p>​    实现代码同上，只需在遇到对象类型时重复调用上述函数即可</p>
+<p>​    效果与方法5基本相同，但复制的是对象和数组</p>
+<p> 7.原型继承</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">object</span>(<span class="params">o</span>)&#123;</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">F</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line">    F.<span class="property"><span class="keyword">prototype</span></span> = o;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title function_">F</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    直接在对象之间构建继承关系</p>
+<p>​    发挥原型的固有优势</p>
+<p> 8.扩展与增强模式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">function</span> <span class="title function_">objectPlus</span>(<span class="params">o, stuff</span>) &#123;</span><br><span class="line">     <span class="keyword">var</span> n;</span><br><span class="line">     <span class="keyword">function</span> <span class="title function_">F</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line">     F.<span class="property"><span class="keyword">prototype</span></span> = o;</span><br><span class="line">     n = <span class="keyword">new</span> <span class="title function_">F</span>();</span><br><span class="line">     n.<span class="property">uber</span> = o;</span><br><span class="line">     <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> stuff) &#123;</span><br><span class="line">       n[i] = stuff[i];</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> n; </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p> 9.多重继承</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">function</span> <span class="title function_">multi</span>(<span class="params"></span>) &#123;</span><br><span class="line">     <span class="keyword">var</span> n = &#123;&#125;, stuff, j = <span class="number">0</span>,</span><br><span class="line">     len = <span class="variable language_">arguments</span>. length;</span><br><span class="line">     <span class="keyword">for</span> (j = <span class="number">0</span>;j &lt; len; j++) &#123;</span><br><span class="line">       stuff = <span class="variable language_">arguments</span>[j];</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> stuff) &#123;</span><br><span class="line">            n[i] = stuff[i];</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> n; </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<p>​    一种混合插入式的继承实现 会按照父对象的出现顺序依次对它们执行属性全复制</p>
+<p> 10.寄生式继承</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">parasite</span> (victim) &#123;</span><br><span class="line">    <span class="keyword">var</span> that = object (victim);</span><br><span class="line">    that.<span class="property">more</span> = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> that;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>该方法通过一个类似于构造器的函数来创建对象</li>
+<li>该函数会执行相应的对象复制，并对其进行扩展，然后返回该复制</li>
+</ul>
+<p> 11.构造器借用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Child</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title class_">Parent</span>.<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>);</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>可以只继承父对象的自身属性</li>
+<li>可以与方法1结合使用，以便从原型中继承相关内容</li>
+<li>便于子对象在继承某个对象的具体属性（并且还有可能是引用类属性）时，选择最简单的处理方式</li>
+</ul>
+<p> 12.构造器借用与属性复制法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Child</span>(<span class="params"></span>) &#123;</span><br><span class="line"> <span class="title class_">Parent</span>.<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">extend2</span>(<span class="title class_">Child</span>, <span class="title class_">Parent</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>此方法是方法11与方法4的结合</li>
+<li>它允许我们在不重复调用父对象构造器的情况下同时继承其自身属性和原型属性</li>
+</ul>
+<h3 id="如何选用继承方法？"><a href="#如何选用继承方法？" class="headerlink" title="如何选用继承方法？"></a>如何选用继承方法？</h3><p>​    取决于我们的设计风格、性能需求、具体项目任务及团队。</p>
+<ul>
+<li>习惯于从类的角度来解决问题？那么基于构造器的工作模式更合适</li>
+<li>只关心该“类”的某些具体实例，则使用基于对象的工作模式更合适。</li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="https://m701.music.126.net/20221005153002/d381e2df5e80cf533212be8083a72d64/jdyyaac/obj/w5rDlsOJwrLDjj7CmsOj/15854242719/fcdb/876e/8611/81cc4933910b92ad658c9c367fefaa76.m4a"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="https://m701.music.126.net/20221005153224/5598792c0f2a2c85d5de595567e44b9a/jdyyaac/obj/w5rDlsOJwrLDjj7CmsOj/15532518523/41fa/8c74/b7c2/ff122551a20b5d77073d5a90e7b4e8ec.m4a"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
