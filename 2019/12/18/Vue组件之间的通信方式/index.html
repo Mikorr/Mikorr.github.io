@@ -5,15 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>对闭包的理解 - null</title>
+    <title>Vue组件之间的通信方式 - null</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="对闭包的理解闭包就是能够读取其他函数内部变量的函数
-闭包指有权访问另一个函数作用域中变量的函数 创建闭包最常见的方式就是在一个函数内创建另一个函数 通过另一个函数访问这个函数的局部变量
-闭包特性：
-,"> 
+    <meta name="description" content="Vue组件之间的通信方式Props  父组件通过props向子组件传递数据 子组件通过$emit和父组件通信  props只能是父组件向子组件进行传值  props使父子组件之间形成一个单向的下行绑,"> 
     <meta name="author" content="Mikor"> 
     <link rel="alternative" href="atom.xml" title="" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -21,22 +18,16 @@
     
     
     <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content="对闭包的理解 - null"/>
-    <meta name="twitter:description" content="对闭包的理解闭包就是能够读取其他函数内部变量的函数
-闭包指有权访问另一个函数作用域中变量的函数 创建闭包最常见的方式就是在一个函数内创建另一个函数 通过另一个函数访问这个函数的局部变量
-闭包特性：
-,"/>
+    <meta name="twitter:title" content="Vue组件之间的通信方式 - null"/>
+    <meta name="twitter:description" content="Vue组件之间的通信方式Props  父组件通过props向子组件传递数据 子组件通过$emit和父组件通信  props只能是父组件向子组件进行传值  props使父子组件之间形成一个单向的下行绑,"/>
     
     
     
     
     <meta property="og:site_name" content=""/>
     <meta property="og:type" content="object"/>
-    <meta property="og:title" content="对闭包的理解 - null"/>
-    <meta property="og:description" content="对闭包的理解闭包就是能够读取其他函数内部变量的函数
-闭包指有权访问另一个函数作用域中变量的函数 创建闭包最常见的方式就是在一个函数内创建另一个函数 通过另一个函数访问这个函数的局部变量
-闭包特性：
-,"/>
+    <meta property="og:title" content="Vue组件之间的通信方式 - null"/>
+    <meta property="og:description" content="Vue组件之间的通信方式Props  父组件通过props向子组件传递数据 子组件通过$emit和父组件通信  props只能是父组件向子组件进行传值  props使父子组件之间形成一个单向的下行绑,"/>
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
@@ -54,7 +45,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">对闭包的理解</h3>
+    <h3 class="subtitle">Vue组件之间的通信方式</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -69,23 +60,55 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">对闭包的理解</h1>
+        <h1 class="title">Vue组件之间的通信方式</h1>
         <div class="stuff">
-            <span>十一月 01, 2018</span>
+            <span>十二月 18, 2019</span>
             
-  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/JS/" rel="tag">JS</a></li></ul>
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Vue/" rel="tag">Vue</a></li></ul>
 
 
         </div>
         <div class="content markdown">
-            <h2 id="对闭包的理解"><a href="#对闭包的理解" class="headerlink" title="对闭包的理解"></a>对闭包的理解</h2><p>闭包就是能够读取其他函数内部变量的函数</p>
-<p>闭包指有权访问另一个函数作用域中变量的函数 创建闭包最常见的方式就是在一个函数内创建另一个函数 通过另一个函数访问这个函数的局部变量</p>
-<p>闭包特性：</p>
-<p>函数套函数</p>
-<p>内部函数可以引用外部函数的参数和变量</p>
-<p>不会被垃圾回收机制回收    </p>
-<p>使用闭包主要是为了设计私有方法和变量 闭包的优点是可以避免全局变量污染 缺点是闭包会常驻内存 增大内存使用量 使用不当容易造成内存泄漏 在js中 函数即闭包</p>
-<p>闭包最大的用处 一是可以读取函数内部变量 二是让这些变量始终保持在内存中 延长变量生命周期</p>
+            <h2 id="Vue组件之间的通信方式"><a href="#Vue组件之间的通信方式" class="headerlink" title="Vue组件之间的通信方式"></a>Vue组件之间的通信方式</h2><p>Props  父组件通过props向子组件传递数据 子组件通过$emit和父组件通信  props只能是父组件向子组件进行传值  props使父子组件之间形成一个单向的下行绑定 子组件的数据随着父组件的更新而响应式更新</p>
+<p>props可以显示定义一个或一个以上的数据 对于接收的数据 可以是各种数据类型 也可以传递一个函数</p>
+<p>props属性名规则 若在props中使用驼峰形式 模板中标签需要使用短横线的形式书写</p>
+<p>l $emit v-on 子组件向父组件传递数据 $emit 绑定一个自定义事件 事件被执行时会将参数传递给父组件 父组件通过v-on监听并接收参数</p>
+<p>l ref/refs  也是实现父子组件通信的  ref用在子组件上 指向子组件的实例 用来通过实例访问组件的数据和方法</p>
+<p>l provide/inject 依赖注入 该方法用于父子组件之间的通信 也可以是祖孙组件 层数很深的情况下可以使用这种方式进行传值 不用一层一层的传递数据</p>
+<p>Provide和inject是vue提供的两个钩子 和data methods是同级的 并且provide书写形式和data一样 provide用来发送数据或方法 inject用来接收数据或方法</p>
+<p>用法： 父组件中 provide(){return{参数:参数}}   子组件中 inject:[‘参数名’]</p>
+<p>注意 依赖注入所提供的属性是非响应式的</p>
+<p>l $parent/$children </p>
+<p>Ø 使用$parent可以让组件访问父组件的实例 (访问的是上一级父组件的属性和方法)  使用$children可以让组件访问子组件的实例 $children并不能保证顺序 并且访问数据不是响应式的</p>
+<p>Ø 用法：</p>
+<p>n 子组件中在computed定义自定义方法 return this.$parent.参数名  直接使用message</p>
+<p>n 父组件绑定事件this.$children[0].message = 值 不需要发送 直接可以调用父组件data内数据</p>
+<p>Ø 注意：</p>
+<p>n 通过$parent访问到的是上一级父组件的实例 可以使用$root来访问根组件的实例</p>
+<p>n 在组件中使用$children拿到的是所有子组件的实例 是一个数组 并且是无序的</p>
+<p>n 在根组件#app上拿$parent得到的是new Vue()的实例 在实例上再拿$parent得到的是undefined 在最底层的子组件拿$children是个空数组</p>
+<p>n $children的值是数组 $parent是对象</p>
+<p>(1) 兄弟组件通信</p>
+<p>l $emit/$on eventBus 中央事件总线 适用于父子组件 非父子组件等之间的通信</p>
+<p>使用步骤：1创建时间中心管理组件之间的通信 export const EventBus = new Vue()</p>
+<p>2 发送事件 export default{components:{事件,事件}}</p>
+<p>在组件中发送事件 EventBus.$emit(‘名称’,{参数：参数})</p>
+<p> 3 在组件中接收事件  EventBus.$on(‘名称’,params=&gt;{参数=参数}) </p>
+<p>(2) 任意组件通信</p>
+<p>l Vuex</p>
+<p>Ø 是一个专为vue应用程序开发的状态管理模式库 采用集中式存储管理应用的所有组件状态 并以相应的规则保证状态以可预测方式发生变化</p>
+<p>l $attrs/$listeners</p>
+<p>Ø A组件是B组件的父组件 B组件是C组件的父组件 如果想组件A给C组件传递数据 隔代传数据的情况该使用什么情况？</p>
+<p>n 如果用props/$emit来一级一级传递 可以完成 但是比较复杂 如果使用事件总线 在多人开发或者数据较大 维护很麻烦 如果使用vuex 仅仅传递数据比较浪费</p>
+<p>n 针对上述情况 vue引入了$attrs/$listeners 实现组件之间跨代通信</p>
+<p>n $attrs继承所有父组件属性(除了props传递的属性 class和style) 一般用在子组件的子元素上</p>
+<p>n $listeners:该属性是一个对象 里面包含了作用在这个组件上的所有监听器 可以配合v-on=’$listeners’将所有的事件监听器指向这个组件的某个特定子元素</p>
+<p>n inheritAttrs 默认值为true 继承所有父组件属性除props之外的所有属性 </p>
+<p>n 只继承class属性</p>
+<p>Ø 用法：</p>
+<p>n A组件 监听事件 在B组件和C组件中直接触发即可</p>
+<p>n B组件 使用props获取A组件内的自定义时间或取出数据 使用$emit触发A组件的方法</p>
+<p>C组件 使用props获取A组件内的自定义时间或取出数据 使用$emit触发A组件的方法</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">

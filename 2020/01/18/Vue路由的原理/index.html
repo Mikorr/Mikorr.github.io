@@ -5,15 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>对闭包的理解 - null</title>
+    <title>Vue路由的原理 - null</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="对闭包的理解闭包就是能够读取其他函数内部变量的函数
-闭包指有权访问另一个函数作用域中变量的函数 创建闭包最常见的方式就是在一个函数内创建另一个函数 通过另一个函数访问这个函数的局部变量
-闭包特性：
-,"> 
+    <meta name="description" content="Vue路由的原理Hash模式：在浏览器中用符号#  #以及#后面的字符称之为hash，用window.location.hash读取 特点：hash虽然在url中 但不被包括在http请求中 用来指,"> 
     <meta name="author" content="Mikor"> 
     <link rel="alternative" href="atom.xml" title="" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -21,22 +18,16 @@
     
     
     <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content="对闭包的理解 - null"/>
-    <meta name="twitter:description" content="对闭包的理解闭包就是能够读取其他函数内部变量的函数
-闭包指有权访问另一个函数作用域中变量的函数 创建闭包最常见的方式就是在一个函数内创建另一个函数 通过另一个函数访问这个函数的局部变量
-闭包特性：
-,"/>
+    <meta name="twitter:title" content="Vue路由的原理 - null"/>
+    <meta name="twitter:description" content="Vue路由的原理Hash模式：在浏览器中用符号#  #以及#后面的字符称之为hash，用window.location.hash读取 特点：hash虽然在url中 但不被包括在http请求中 用来指,"/>
     
     
     
     
     <meta property="og:site_name" content=""/>
     <meta property="og:type" content="object"/>
-    <meta property="og:title" content="对闭包的理解 - null"/>
-    <meta property="og:description" content="对闭包的理解闭包就是能够读取其他函数内部变量的函数
-闭包指有权访问另一个函数作用域中变量的函数 创建闭包最常见的方式就是在一个函数内创建另一个函数 通过另一个函数访问这个函数的局部变量
-闭包特性：
-,"/>
+    <meta property="og:title" content="Vue路由的原理 - null"/>
+    <meta property="og:description" content="Vue路由的原理Hash模式：在浏览器中用符号#  #以及#后面的字符称之为hash，用window.location.hash读取 特点：hash虽然在url中 但不被包括在http请求中 用来指,"/>
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
@@ -54,7 +45,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">对闭包的理解</h3>
+    <h3 class="subtitle">Vue路由的原理</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -69,23 +60,20 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">对闭包的理解</h1>
+        <h1 class="title">Vue路由的原理</h1>
         <div class="stuff">
-            <span>十一月 01, 2018</span>
+            <span>一月 18, 2020</span>
             
-  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/JS/" rel="tag">JS</a></li></ul>
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Vue/" rel="tag">Vue</a></li></ul>
 
 
         </div>
         <div class="content markdown">
-            <h2 id="对闭包的理解"><a href="#对闭包的理解" class="headerlink" title="对闭包的理解"></a>对闭包的理解</h2><p>闭包就是能够读取其他函数内部变量的函数</p>
-<p>闭包指有权访问另一个函数作用域中变量的函数 创建闭包最常见的方式就是在一个函数内创建另一个函数 通过另一个函数访问这个函数的局部变量</p>
-<p>闭包特性：</p>
-<p>函数套函数</p>
-<p>内部函数可以引用外部函数的参数和变量</p>
-<p>不会被垃圾回收机制回收    </p>
-<p>使用闭包主要是为了设计私有方法和变量 闭包的优点是可以避免全局变量污染 缺点是闭包会常驻内存 增大内存使用量 使用不当容易造成内存泄漏 在js中 函数即闭包</p>
-<p>闭包最大的用处 一是可以读取函数内部变量 二是让这些变量始终保持在内存中 延长变量生命周期</p>
+            <h2 id="Vue路由的原理"><a href="#Vue路由的原理" class="headerlink" title="Vue路由的原理"></a>Vue路由的原理</h2><p>Hash模式：在浏览器中用符号#  #以及#后面的字符称之为hash，用window.location.hash读取 特点：hash虽然在url中 但不被包括在http请求中 用来指导浏览器动作 对服务端安全无用 hash不会重加载页面   </p>
+<p>Hash模式根本原理涉及到BOM中的location对象 其中对象中的location.hash储存的是路由的地址 可以赋值改变URL的地址 这会触发hashchange事件 通过window.addEventListener监听hash值然后去匹配对应的路由 从而渲染页面组件</p>
+<p>History模式 history采用html5的新特性 提供了两个新方法 pushState() replaceState()可以对浏览器历史记录栈进行修改 以及popState事件监听到状态变更</p>
+<p>pushState前端用来向history中塞入一条历史记录 必须是当前域名下 执行完成后 地址栏会变成塞入的url但页面不会改变</p>
+<p>popState 与pushState组件实现监听用户点击返回键时触发事件 单独使用并不能实现监听用户退出的功能</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
